@@ -7,41 +7,41 @@ export interface contributionsInterface {
 
 export const contributionsUnsorted: contributionsInterface[] = [
   {
-    repo: "minimal-next-portfolio",
+    repo: "NxtLAP_web",
     contibutionDescription:
-      "Open-source Next.js portfolio template. Trusted and forked by developers worldwide (130+ GitHub stars).",
-    repoOwner: "namanbarkiya",
-    link: "https://github.com/namanbarkiya/minimal-next-portfolio",
+      "Motorsport-focused platform for tracking races. Implemented advanced SEO, schema markup, and dynamic blog sections using Next.js.",
+    repoOwner: "One Corp",
+    link: "https://github.com/one-corp/NxtLAP_web",
   },
   {
-    repo: "niya-saas-template",
+    repo: "ai-career-counselor",
     contibutionDescription:
-      "Modern Next.js SaaS template. Production-ready starter for devs and AI startups (30+ GitHub stars).",
-    repoOwner: "namanbarkiya",
-    link: "https://github.com/namanbarkiya/niya-saas-template",
+      "Full-stack AI counseling platform using Next.js and Google Gemini. Handles 100+ chat interactions with context-aware responses.",
+    repoOwner: "thecodephilic-guy",
+    link: "https://github.com/thecodephilic-guy/ai-career-counselor",
   },
   {
-    repo: "autogen",
+    repo: "exoscale-academy",
     contibutionDescription:
-      "Improved the gallery component to showcase the community work.",
-    repoOwner: "Microsoft",
-    link: "https://github.com/microsoft/autogen/pull/1445",
+      "Converted static architecture images into interactive Meshery Designs and embedded them into Exoscale Academy course content.",
+    repoOwner: "Layer5",
+    link: "https://github.com/layer5io/exoscale-academy/issues/173",
   },
   {
-    repo: "creativecommons",
+    repo: "exoscale-academy",
     contibutionDescription:
-      "Closed Issue: Fixed navbar issue on the main website of creative common.",
-    repoOwner: "Creative Commons",
-    link: "https://github.com/creativecommons/creativecommons.github.io-source/pull/738",
+      "Designed and integrated a Kubernetes architecture Meshery Design, transforming conceptual diagrams into executable, interactive learning assets.",
+    repoOwner: "Layer5",
+    link: "https://github.com/layer5io/exoscale-academy/issues/175",
   },
   {
-    repo: "creativecommons",
+    repo: "landing",
     contibutionDescription:
-      "Added section for 'Other Opportunities' on main page.",
-    repoOwner: "Creative Commons",
+      "Fixed Community Fly-out Menu which hid itself unless you move your cursor through the desired path.",
+    repoOwner: "Open Healthcare Network",
     link: "https://github.com/creativecommons/creativecommons.github.io-source/pull/719",
   },
 ];
 
 export const featuredContributions: contributionsInterface[] =
-  contributionsUnsorted.slice(0, 3);
+  contributionsUnsorted.slice(2);

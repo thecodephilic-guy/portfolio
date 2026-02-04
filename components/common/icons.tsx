@@ -33,7 +33,7 @@ import {
   Zap,
 } from "lucide-react";
 import { AiFillStar } from "react-icons/ai";
-import { BiLaugh, BiSolidUser } from "react-icons/bi";
+import { BiLaugh, BiSolidUser, BiLogoPostgresql } from "react-icons/bi";
 import { BsInfoCircle, BsQuestionCircle } from "react-icons/bs";
 import {
   HiBriefcase,
@@ -41,6 +41,7 @@ import {
   HiOutlineLink,
 } from "react-icons/hi";
 import { IoIosGitBranch } from "react-icons/io";
+import { FaGolang } from "react-icons/fa6";
 import {
   SiAmazonwebservices,
   SiAngular,
@@ -65,6 +66,7 @@ import {
   SiTailwindcss,
   SiTypescript,
   SiX,
+  SiShadcnui,
 } from "react-icons/si";
 
 export const Icons = {
@@ -109,6 +111,9 @@ export const Icons = {
   graphql: SiGraphql,
   html5: SiHtml5,
   javascript: SiJavascript,
+  golang: FaGolang,
+  shadcn: SiShadcnui,
+  postgresql: BiLogoPostgresql,
   mongodb: SiMongodb,
   mui: SiMui,
   mysql: SiMysql,
@@ -159,7 +164,7 @@ export const Icons = {
           className="tick"
           fill="none"
           stroke="currentColor"
-          stroke-width="4"
+          strokeWidth="4"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-miterlimit="10"

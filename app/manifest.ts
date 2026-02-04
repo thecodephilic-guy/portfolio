@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Naman Barkiya | Applied AI Engineer",
-    short_name: "Naman Barkiya",
+    name: "Mohd Sohail Ansari - Software Engineer (Next.js, Go, TypeScript)",
+    short_name: "Sohail",
     description:
-      "Naman Barkiya - Applied AI Engineer working at the intersection of AI, data, and scalable software systems.",
+      "Mohd Sohail Ansari - Software Engineer and Open Source Contributor. Specializing in full-stack development with Next.js, TypeScript, and Go. Building scalable AI platforms and real-time applications.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

@@ -60,7 +60,21 @@ export type ValidSkills =
   | "FastAPI"
   | "SQL"
   | "NoSQL"
-  | "Framer Motion";
+  | "Framer Motion"
+  | "GO"
+  | "Open Graph"
+  | "SEO"
+  | "tRPC"
+  | "TanStack Query"
+  | "Drizzle ORM"
+  | "Google GenAI SDK"
+  | "Zod"
+  | "Express.js"
+  | "bcryptjs"
+  | "Socket.IO"
+  | "axios"
+  | "date-fsn"
+  | "Zustand";
 
 export type ValidCategory =
   | "Full Stack"
@@ -68,8 +82,8 @@ export type ValidCategory =
   | "Backend"
   | "UI/UX"
   | "Web Dev"
-  | "Mobile Dev"
-  | "3D Modeling";
+  | "AI Engineering"
+  | "Real-time Systems";
 
 export type ValidExpType = "Personal" | "Professional";
 
