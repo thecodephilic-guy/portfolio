@@ -39,7 +39,7 @@ export const contributionsUnsorted: contributionsInterface[] = [
     contibutionDescription:
       "Fixed Community Fly-out Menu which hid itself unless you move your cursor through the desired path.",
     repoOwner: "Open Healthcare Network",
-    link: "https://github.com/creativecommons/creativecommons.github.io-source/pull/719",
+    link: "https://github.com/ohcnetwork/landing/issues/10",
   },
 ];
 
