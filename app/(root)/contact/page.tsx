@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import PageContainer from "@/components/common/page-container";
 import { ContactForm } from "@/components/forms/contact-form";
 import { pagesConfig } from "@/config/pages";

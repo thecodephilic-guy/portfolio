@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookMarked,
   Building,
+  Calendar1Icon,
   Check,
   ChevronDown,
   ChevronLeft,
@@ -33,15 +34,18 @@ import {
   Zap,
 } from "lucide-react";
 import { AiFillStar } from "react-icons/ai";
-import { BiLaugh, BiSolidUser, BiLogoPostgresql } from "react-icons/bi";
+import { BiLaugh, BiLogoPostgresql, BiSolidUser } from "react-icons/bi";
 import { BsInfoCircle, BsQuestionCircle } from "react-icons/bs";
+import { CgSandClock } from "react-icons/cg";
+import { FaBloggerB, FaGolang, FaPenFancy } from "react-icons/fa6";
+import {FaCheckCircle} from "react-icons/fa"
 import {
   HiBriefcase,
+  HiLightBulb,
   HiOutlineExternalLink,
   HiOutlineLink,
 } from "react-icons/hi";
 import { IoIosGitBranch } from "react-icons/io";
-import { FaGolang } from "react-icons/fa6";
 import {
   SiAmazonwebservices,
   SiAngular,
@@ -62,11 +66,11 @@ import {
   SiNodedotjs,
   SiReact,
   SiRedux,
+  SiShadcnui,
   SiSocketdotio,
   SiTailwindcss,
   SiTypescript,
   SiX,
-  SiShadcnui,
 } from "react-icons/si";
 
 export const Icons = {
@@ -131,6 +135,12 @@ export const Icons = {
   linkedin: SiLinkedin,
   userFill: BiSolidUser,
   work: HiBriefcase,
+  blogger: FaBloggerB,
+  pen: FaPenFancy,
+  calender: Calendar1Icon,
+  sandclock: CgSandClock,
+  success: FaCheckCircle,
+  info: HiLightBulb,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"

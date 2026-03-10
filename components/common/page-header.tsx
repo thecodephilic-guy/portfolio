@@ -1,3 +1,5 @@
+import { Icons } from "./icons";
+
 interface PageHeaderProps {
   title: string;
   description: string;
@@ -14,6 +16,16 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
           <p className="text-lg text-muted-foreground">{description}</p>
         </div>
       </div>
+      {title === "Blogs" && (
+        <div className="mt-4 text-sm italic text-muted-foreground">
+          Blogs marked with{" "}
+          <Icons.star 
+            size={16} 
+            className="inline-block align-text-bottom mx-1 text-yellow-500 fill-yellow-500" 
+          />{" "}
+          are my personal favourites
+        </div>
+      )}
       <hr className="my-6" />
     </>
   );
