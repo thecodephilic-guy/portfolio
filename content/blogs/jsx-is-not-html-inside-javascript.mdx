@@ -1,0 +1,105 @@
+---
+title: "JSX is just HTML Inside JavaScript, Right?"
+date: "2026-03-11"
+snippet: "JSX is not HTML. JSX is not React. JSX is not even mandatory! When you first look at the syntax, it may seem like HTML, but it isn’t. Let’s break this myth among newbie developers."
+tags: ["React", "JavaScript", "Web Development", "JSX", "HTML", "Frontend"]
+author: "Sohail"
+techHeavy: false
+myFav: true
+---
+
+I still remember when I first started with **React**.
+Coming from a traditional web development background where, **HTML**, **CSS**, and **JavaScript** were kept in their own little worlds, the whole thing felt… messy. A friend, with a certain swagger, said to me, _“Bro, JSX is just HTML inside JavaScript.”_
+
+And for a while, I actually believed it.
+I looked at the code, saw the familiar angled brackets, and thought, “Alright, it does sort of look like HTML, so what’s the harm?” It seemed like a neat way to jam the UI and the logic all into one place.
+
+But here’s the reality check that every developer eventually faces:
+JSX is not HTML. JSX is not React. **JSX is not even mandatory to use React!!!**
+
+There are a lot of misconceptions floating around out there.
+So, let’s grab a coffee and bust some of the most common myths tripping up newbie developers today.
+
+### 1. JSX is part of React
+
+Nope. Not at all. JSX is simply an XML-like syntax extension for JavaScript.
+Its entire job is to make writing UI code look nice and readable for developers like us.
+
+React just happens to be the most famous library that popularized it.
+You can technically use JSX with entirely different libraries, like Preact, SolidJS, or even custom view libraries.
+Guess what for writing these blogs I am using JSX inside **Markdown (md)** it's called <a href='https://mdxjs.com' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>MDX</a> .
+So JSX is an independent concept that provides syntactic sugar, not a proprietary React feature locked inside the library.
+
+### 2. JSX is HTML inside JS
+
+Wrong again. While JSX looks suspiciously like HTML, it is fundamentally different.
+Browsers have absolutely no idea how to read JSX. If you tried to feed it directly to Chrome or Firefox, it would throw a massive syntax error.
+
+JSX actually gets converted into regular, vanilla JavaScript before the browser ever sees it.
+This heavy lifting is usually done by a transpiler like <a href='https://babeljs.io' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>Babel</a>.
+
+So when you write this line:
+
+```JavaScript
+const element = <h1>Hello World</h1>;
+```
+
+Babel secretly works behind the scenes and converts it into this:
+
+```JavaScript
+const element = React.createElement("h1", null, "Hello World");
+```
+
+Is it magic? Nope. It’s just syntax sugar doing its job to save our keyboards.
+
+### 3. Bundler renders JSX
+
+Bundlers like <a href='https://webpack.js.org' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>Webpack</a> or Vite are amazing tools, but they are just the delivery guys.
+They grab all your scattered files, assets, and dependencies, and bundle them up efficiently.
+
+The actual transformation of JSX into pure JS isn't the bundler's core job, that is handled by the transpiler (like Babel or SWC).
+The bundler just coordinates the process and makes sure the newly translated JavaScript gets packed neatly for the browser to consume.
+
+### 4. JSX is mandatory if you want to write React
+
+Believe it or not, you can build an entire React application without writing a single line of JSX.
+It’s completely optional! It will just look incredibly ugly and be a nightmare to maintain.
+
+For example, without JSX, your code looks like this:
+
+```JavaScript
+const element = React.createElement("h1", null, "Hello without JSX");
+```
+
+Now imagine trying to build a complex, nested layout with dozens of <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span>, <span className='bg-secondary text-primary rounded-sm'>&lt;span&gt;</span>, and custom components using <span className='bg-secondary text-primary rounded-sm'>React.createElement;</span> for every single node.
+You'd end up in a labyrinth of nested function calls. It produces the exact same output, but I know which one I’d rather write.
+
+### 5. JSX is only for HTML tags
+
+Nope. One of the best things about JSX is that it’s for your custom components too.
+
+How does it know the difference? Capitalization. If it starts with a lowercase letter, React assumes it’s a standard DOM node like a <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span> or a <span className='bg-secondary text-primary rounded-sm'>&lt;p&gt;</span>. If it starts with a capital letter, it knows it’s looking at a custom <span className='bg-secondary text-primary rounded-sm'>&lt;Component /&gt;</span> you built.
+
+```JavaScript
+const Component = () => <div>Hey, I’m component</div>;
+const jsxElement = <Component />;
+
+```
+
+So JSX acts as a unified, predictable way to represent both a standard <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span> and your custom <span className='bg-secondary text-primary rounded-sm'>&lt;MyComponent /&gt;</span> in the exact same visual hierarchy.
+
+## So to conclude:
+
+JSX is not some magical, React-only sorcery. It’s just a much friendlier,
+more intuitive way of writing JavaScript that describes how a user interface should look.
+Once you understand what’s actually happening under the hood, that it's just functions calling
+functions, it suddenly feels way less scary.
+
+So next time someone says _“JSX is just HTML in JS”_, just smile and reply.\
+**“Sure, and pizza is just bread with toppings.”**
+
+That’s it for today! Thanks for reading. I’ll be sharing more soon...
+
+---
+
+<BlogCallout />
