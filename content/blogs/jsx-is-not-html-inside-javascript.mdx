@@ -5,7 +5,7 @@ snippet: "JSX is not HTML. JSX is not React. JSX is not even mandatory! When you
 tags: ["React", "JavaScript", "Web Development", "JSX", "HTML", "Frontend"]
 author: "Sohail"
 techHeavy: false
-myFav: true
+myFav: false
 ---
 
 I still remember when I first started with **React**.
@@ -27,7 +27,7 @@ Its entire job is to make writing UI code look nice and readable for developers 
 
 React just happens to be the most famous library that popularized it.
 You can technically use JSX with entirely different libraries, like Preact, SolidJS, or even custom view libraries.
-Guess what for writing these blogs I am using JSX inside **Markdown (md)** it's called <a href='https://mdxjs.com' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>MDX</a> .
+Guess what for writing these blogs I am using JSX inside **Markdown (md)** it's called [MDX](https://mdxjs.com).
 So JSX is an independent concept that provides syntactic sugar, not a proprietary React feature locked inside the library.
 
 ### 2. JSX is HTML inside JS
@@ -36,7 +36,7 @@ Wrong again. While JSX looks suspiciously like HTML, it is fundamentally differe
 Browsers have absolutely no idea how to read JSX. If you tried to feed it directly to Chrome or Firefox, it would throw a massive syntax error.
 
 JSX actually gets converted into regular, vanilla JavaScript before the browser ever sees it.
-This heavy lifting is usually done by a transpiler like <a href='https://babeljs.io' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>Babel</a>.
+This heavy lifting is usually done by a transpiler like [Babel](https://babeljs.io).
 
 So when you write this line:
 
@@ -54,7 +54,7 @@ Is it magic? Nope. It’s just syntax sugar doing its job to save our keyboards.
 
 ### 3. Bundler renders JSX
 
-Bundlers like <a href='https://webpack.js.org' target='_blank' className='font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors'>Webpack</a> or Vite are amazing tools, but they are just the delivery guys.
+Bundlers like [Webpack](https://webpack.js.org) or [Vite](https://vite.dev) are amazing tools, but they are just the delivery guys.
 They grab all your scattered files, assets, and dependencies, and bundle them up efficiently.
 
 The actual transformation of JSX into pure JS isn't the bundler's core job, that is handled by the transpiler (like Babel or SWC).
@@ -71,22 +71,21 @@ For example, without JSX, your code looks like this:
 const element = React.createElement("h1", null, "Hello without JSX");
 ```
 
-Now imagine trying to build a complex, nested layout with dozens of <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span>, <span className='bg-secondary text-primary rounded-sm'>&lt;span&gt;</span>, and custom components using <span className='bg-secondary text-primary rounded-sm'>React.createElement;</span> for every single node.
+Now imagine trying to build a complex, nested layout with dozens of `<div>`, `<span>`, and custom components using `React.createElement;` for every single node.
 You'd end up in a labyrinth of nested function calls. It produces the exact same output, but I know which one I’d rather write.
 
 ### 5. JSX is only for HTML tags
 
 Nope. One of the best things about JSX is that it’s for your custom components too.
 
-How does it know the difference? Capitalization. If it starts with a lowercase letter, React assumes it’s a standard DOM node like a <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span> or a <span className='bg-secondary text-primary rounded-sm'>&lt;p&gt;</span>. If it starts with a capital letter, it knows it’s looking at a custom <span className='bg-secondary text-primary rounded-sm'>&lt;Component /&gt;</span> you built.
+How does it know the difference? Capitalization. If it starts with a lowercase letter, React assumes it’s a standard DOM node like a `<div>` or a `<p>` you built.
 
 ```JavaScript
 const Component = () => <div>Hey, I’m component</div>;
 const jsxElement = <Component />;
-
 ```
 
-So JSX acts as a unified, predictable way to represent both a standard <span className='bg-secondary text-primary rounded-sm'>&lt;div&gt;</span> and your custom <span className='bg-secondary text-primary rounded-sm'>&lt;MyComponent /&gt;</span> in the exact same visual hierarchy.
+So JSX acts as a unified, predictable way to represent both a standard `<div>` and your custom `<MyComponent />` in the exact same visual hierarchy.
 
 ## So to conclude:
 

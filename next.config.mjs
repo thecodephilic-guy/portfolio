@@ -1,9 +1,10 @@
-const withMDX = require('@next/mdx')()
+import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
+  //Other Next.js configs:
   async headers() {
     return [
       {
@@ -25,4 +26,9 @@ const nextConfig = {
   },
 };
 
-module.exports = withMDX(nextConfig);
+const withMDX = createMDX({
+  // Markdown plugins will go here
+  extension: /\.(md|mdx)$/, // this is to allow .md files to be compiled by webpack
+})
+
+export default withMDX(nextConfig);

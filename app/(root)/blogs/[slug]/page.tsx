@@ -1,5 +1,5 @@
+import BlogHeader from "@/components/blogs/blog-header";
 import MdxContent from "@/components/blogs/mdx-content";
-import { Icons } from "@/components/common/icons";
 import { allBlogs, getBlogContent, getReadingTime } from "@/config/blogs";
 import { siteConfig } from "@/config/site";
 import { Metadata } from "next";
@@ -54,29 +54,13 @@ export async function generateMetadata({
 
 export default async function BlogPost({ params }: BlogPostProps) {
   try {
-    const resolvedParams = await params;
-    const { content, data } = getBlogContent(resolvedParams.slug);
+    const { slug } = await params;
+    const { content, data } = getBlogContent(slug);
+    const readingTime = getReadingTime(content, data.techHeavy)
 
     return (
       <div className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
-        <header className="mb-8 border-b pb-8">
-          <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
-            {data.title}
-          </h1>
-          <div className="flex items-center space-x-4 text-sm text-muted-foreground">
-            <div className="flex items-center space-x-1.5 min-w-0">
-              <Icons.pen size={14} className="flex-shrink-0 sm:w-4 sm:h-4" />
-              {data.author && <span>{data.author}</span>}
-            </div>
-            {data.author && <span>•</span>}
-            <time dateTime={data.date}>{data.date}</time>
-            {<span>•</span>}
-            {
-              <span>{`${getReadingTime(content, data.techHeavy)} min read`}</span>
-            }
-          </div>
-        </header>
-
+        <BlogHeader title={data.title} author={data.author} date={data.date} readingTime={readingTime} />
         <MdxContent source={content} />
       </div>
     );

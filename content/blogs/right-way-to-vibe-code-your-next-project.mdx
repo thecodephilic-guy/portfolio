@@ -1,0 +1,148 @@
+---
+title: "Vibe Coding in 2026: How to Do It the Right Way"
+date: "2026-03-12"
+snippet: "Vibe coding is everywhere in 2026, but are we actually building things or just babysitting AI? Learn how to use LLMs the right way without deploying code you can't explain."
+tags: ["Vibe Coding", "AI Coding Tools", "AI-assisted programming", "Claude Code", "Best Practices"]
+author: "Sohail"
+techHeavy: false
+myFav: true
+---
+
+<TLDR>
+- Treat AI like a really fast, slightly reckless junior dev. You still need to lay down the initial folder structure yourself so you know where the walls are.
+- Use the AI to help you understand complex snippets, rather than letting it take over your IDE and write the whole app blindly.
+- Keep it far away from designing your database schema, because it has zero clue about your future pivots.
+- Please, for the love of god, do not deploy code you can't explain line-by-line, trust me on the interview trauma.
+- And finally, realize that your true worth is in being the visionary who designs the system, not the laborer just typing out the syntax.
+</TLDR>
+
+[Vibe Coding](https://cloud.google.com/discover/what-is-vibe-coding) has grown much more in popularity coming into 2026. 
+The term was first coined by [Andrej Karpathy](https://karpathy.ai), who **co-founded** and formerly worked at [OpenAI](https://openai.com).\
+_The ability to create a digital entity like software, without requiring much programming experience, by using any of the LLMs available today is known as vibe coding._
+
+Vibe Coding gained rapid popularity in early 2025 as the coding agents were becoming more capable and were racing to outperform each other.
+Instead of going to help forums like [Stack Overflow](https://stackoverflow.com/questions), developers started solving their bugs with AI tools. Why? Well, come on, we all know it saves a hell lot of time.
+The concept of vibe coding was warmly welcomed by newbie developers because it made their work of creating something presentable really, really fast. But... at what cost?\
+It has significantly lowered the capability to actually **learn to code**, and people nowadays are actually just fixing code written by AI. The irony is we started all this by asking it to fix our code, and now we are fixing AI's code.
+
+Let's face it: vibe coding is no longer just for the fresh-faced. By 2026, it's how the whole industry gets things done. 
+From the junior developer crafting their initial project to the seasoned architect overseeing intricate microservices, we're all essentially "vibing" with LLMs to accelerate the delivery of production-ready code. 
+The focus has shifted from writing code to orchestrating the AI.
+
+**Let's explore how we as developers can still adopt this concept, but in a way to make the most out of it and actually learn to code rather than fixing code.**
+
+## 1. Lay the foundation by yourself
+
+Never give the task of creating or initiating a new project to AI tools like [Cursor](https://cursor.com), [Antigravity](https://antigravity.google), etc., 
+because the foundation of any project, not just a software project, even civil ones—makes the complete application strong. 
+Also, if AI is doing the work of writing all the boilerplate, later on, to understand how it has structured the project, 
+you have to spend a lot more time which could have been easily understood if you manually created all the folder structure.
+
+I don't know, but personally speaking, I am the kind of guy who loves his own space. I don't want my things to be touched and disorganized by anyone, 
+be it the AI. So I kinda feel like if you manually do this work of root-level architecting, things will be much easier for you in the future 
+because code grows like a tree with time. Let me tell you one more thing: no matter how scalable your application or software is, it will 
+break one day for sure. It's a bitter truth. Now imagine fixing something broken, that too in production, and that too when that thing is not created by you. 
+Nightmare, right?
+
+Also, we as humans can better organize stuff, at least better than AI. So in the future, when you give access of your codebase to any 
+coding IDE, let's say Antigravity, it will perform a lot better compared to giving it a messy codebase.
+
+## 2. Use AI for Context, Not Control
+
+When I first tried Google's Antigravity, I prompted it like this:
+
+_"You are an experienced Go backend engineer. I want you to build a real-time chat server in Go following the code architecture and conventions used 
+in the book [Let’s Go Further](https://lets-go-further.alexedwards.net) by [Alex Edwards](https://www.alexedwards.net). The goal is to build a production-style backend service, not a simple demo project. 
+Follow these instructions carefully."_
+
+It took barely 10 minutes and created a server following everything exactly as I asked (you can check the code [here](https://github.com/thecodephilic-guy/go-chat-server)). Sure, 
+it nailed the routing and structure, but that's when I realized something scary: if I kept using it, my actual learning would be dead over time. It's like an addiction. It starts with those little dopamine spikes, a quick rush, and the illusion that you're building something. But the truth is, it's not really you doing the work. What have I done?
+ I instantly uninstalled it (sorry Google... maybe some other time, lol).
+
+I am not saying autonomous IDEs are bad. They are incredibly powerful tools if you already know how the code works under the 
+hood. But for a learner, it's like a snake biting its own tail. You just get stuck in a loop of generating code you can't confidently maintain.
+
+Now, let's talk about the better way. For me, the best approach is to start small. Copy snippets of code that you don't 
+understand, drop them into a conversational LLM, and just ask questions. This is where the magic begins. Those complex lines of Go or React will actually start making sense to you. You can even feed these models clear screenshots of your terminal errors, which works perfectly too.
+
+So, as a rule of thumb: if you know how to provide the AI with good enough context and take clean screenshots, congratulations! you can be a solid vibe coder.
+I found this thread on Reddit where devs were discussing this exact same realization. You can read it [here](https://www.reddit.com/r/AskProgramming/comments/1jhqfjz/vibe_coding_vs_using_ai_for_coding_isnt_it_two/).
+
+<ProTip type="warning" title="Keep Your Keys Local">
+Never share actual API keys or passwords with an LLM. They are not secure vaults, and your sensitive data could be stored or reflected elsewhere.
+</ProTip>
+
+## 3. Keep AI Out of Your Database
+
+What do I mean by this? I am assuming that you already know how a **full-stack application** works, 
+especially a classic 3-tier architecture, where the **database sits at the bottom**, then there is the 
+**server (say, Node.js or Go)**, and then our client or **frontend (like React or Next.js)**. 
+Today, if we ask AI to create a full-stack application and even let it have the control of 
+designing the complete schema for our database, this could be fatal in the long run. 
+Why? I mean, you cannot tell everything to AI while building. Even if you did, it will start 
+hallucinating (that's a topic for some other day) and would not perform well. 
+
+You as the person building it have the best idea of what you want out of your application or product, 
+so it's much better that you design the schema, taking all edge cases into account on the go. 
+By edge cases, I mean future possibilities and pivots. What AI does is it tries to take the best 
+option according to the current needs of your application. It does not know what you expect from 
+your application in the near future, but you do very well. And we all know making schema-level 
+changes to a database in production is a pain in the ass.
+
+Though, if you want to incorporate AI in your decision-making for database design, you can do that and that's a pretty awesome thing to do. It can easily predict all edge cases for your design decisions. It is like having someone looking over your shoulder to judge your decisions instantly, so leverage it. But do not solely depend on it, and especially do not blindly depend on a schema designed by AI.
+
+<ProTip>
+For database design, you can use tools like [drawSQL](https://drawsql.app), they are really helpful.
+</ProTip>
+
+## 4. Never Deploy Code You Can't Explain Line-by-Line
+
+Being a close victim of this, let me tell you, it's the absolute worst thing that can happen to you in an interview.
+
+Recently, I sat in an interview for a full-time full-stack developer role. They specifically needed developers who could vibe code (yeah, such roles actually exist now!), but not just a regular vibe coder. 
+They wanted someone who actually knows what they are shipping to production.
+
+**My mistake?** I had a project on my resume that I had heavily vibe-coded (ー_ー), and that too without having a deep understanding of it. 
+The interviewer asked me to open this project in [VS Code](https://code.visualstudio.com), share my screen, and start explaining the code flow to them. 
+I was literally just staring at the screen for 5 minutes, trying to understand some logic that wasn't purely mine. 
+It is a surreal and embarrassing feeling to look at your "own" codebase and draw a complete blank.
+
+So yeah, it was a brutal setback, but it gave me a massive learning moment. I didn't remove the project from my resume; 
+rather, I sat down later and made sure I had a solid understanding of how everything actually worked under the hood.
+
+This story is kinda self-explanatory as to why you should never deploy, or claim-code you can't explain line-by-line.
+
+## 5. AI Can Lay the Bricks, But You Need to Hold the Blueprint
+
+What are these AI models actually good at? I'd say the manual labor—the sheer act of typing out `<Code/>`. 
+But when it comes to creatively making something new, piecing together a complex architecture with the best possible 
+engineering decisions, that’s where humans completely outshine them. I mean, we are the ones who created these AIs in the first place, right?
+
+So what I mean is, always keep the decision-making power with yourself. If you do that, you'll definitely see that the 
+whole fear of _"AI hamari jobs kha jayega"_ **(AI will eat our jobs)** just fades away over time. As software engineers, 
+our core job has always been solving complex problems, not just memorizing syntax. 
+If your only USP is writing basic boilerplate code, then honestly, your job has probably already been taken by AI.
+
+But if you can design scalable systems, figure out the business logic, and validate those solutions, maybe by using 
+AI as your assistant or working under a senior's guidance, that is what makes you unstoppable.
+
+Think about it: the role of a civil engineer is to design the architecture and ensure the building won't 
+collapse, not to manually lay every single brick themselves. Yet, as developers, we’ve historically preferred 
+to lay our own "bricks" (write our own code). Why? Because we trust ourselves and our teams more than a machine. 
+Now, the tools have evolved. It's okay to let the AI lay the bricks for you to speed things up, but you absolutely must be the one holding the blueprint.
+
+## To Summarize
+
+1. Treat AI like a really fast, slightly reckless junior dev. You still need to lay down the initial folder structure yourself so you know where the walls are.
+2. Use the AI to help you understand complex snippets, rather than letting it take over your IDE and write the whole app blindly.
+3. Keep it far away from designing your database schema, because it has zero clue about your future pivots.
+4. Please, for the love of god, do not deploy code you can't explain line-by-line, trust me on the interview trauma.
+5. And finally, realize that your true worth is in being the visionary who designs the system, not the laborer just typing out the syntax.
+
+Vibe coding is a crazy good workflow, but at the end of the day, you are the engineer. Let the AI do labor work, but make damn sure you're the one holding the rope not AI.
+
+Catch you in the next one!
+
+----
+
+<BlogCallout />
