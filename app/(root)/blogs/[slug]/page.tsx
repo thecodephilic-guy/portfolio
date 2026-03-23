@@ -56,7 +56,7 @@ export default async function BlogPost({ params }: BlogPostProps) {
   try {
     const { slug } = await params;
     const { content, data } = getBlogContent(slug);
-    const readingTime = getReadingTime(content, data.techHeavy)
+    const readingTime = getReadingTime(content)
 
     return (
       <div className="max-w-3xl mx-auto py-10 px-4 sm:px-6 lg:px-8">

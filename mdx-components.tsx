@@ -66,7 +66,7 @@ export const mdxComponents = {
         <Link
           href={href}
           target="_blank"
-          className="font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+          className="font-medium text-sm text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
           {...props}
         />
       );
@@ -78,7 +78,7 @@ export const mdxComponents = {
         href={href}
         target="_blank"
         rel="noopener noreferrer" // Added for security!
-        className="font-medium text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
+        className="font-medium text-sm text-primary underline underline-offset-4 hover:text-primary/80 transition-colors"
         {...props}
       />
     );

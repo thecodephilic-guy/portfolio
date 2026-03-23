@@ -23,9 +23,8 @@ const blogs = files
     const fileContent = readFileSync(filePath, "utf8");
 
     const { data, content } = matter(fileContent);
-    const isTechHeavy = data.techHeavy;
 
-    const readingTime = getReadingTime(content, isTechHeavy);
+    const readingTime = getReadingTime(content);
 
     const slug = file.replace(".mdx", "");
 
@@ -51,8 +50,8 @@ export function getBlogContent(slug: string) {
   return matter(fileContent);
 }
 
-export function getReadingTime(content: string, techHeavy: boolean): number {
-  const wordsPerMinute = techHeavy ? 130 : 200;
+export function getReadingTime(content: string ): number {
+  const wordsPerMinute = 250
 
   const wordCount = content.trim().split(/\s+/g).length;
   const minutes = wordCount / wordsPerMinute;
