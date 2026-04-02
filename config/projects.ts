@@ -42,8 +42,7 @@ export const Projects: ProjectInterface[] = [
       "React",
       "Typescript",
       "Tailwind CSS",
-      "SEO",
-      "Open Graph",
+      "Vercel"
     ],
     startDate: new Date("2025-08-05"),
     endDate: "Present",
@@ -114,10 +113,9 @@ export const Projects: ProjectInterface[] = [
         "A key technical challenge was ensuring session continuity. I designed a scalable PostgreSQL schema using Drizzle ORM that achieves 99% accurate session retrieval, allowing users to pause and resume conversations seamlessly.",
       ],
       bullets: [
-        "Developed a full-stack AI counseling platform handling 100+ chat interactions per session.",
+        "Built a smooth, responsive chat interface using Next.js and Tailwind CSS. Implemented live message streaming to reduce perceived latency and significantly improve the user interface responsiveness.",
         "Engineered a human-like chat interface with live typing indicators and streamed responses, reducing perceived latency by 40%.",
-        "Designed a scalable PostgreSQL schema using Drizzle ORM for robust data persistence.",
-        "Implemented context-aware responses using Google Gemini and tRPC for type-safe API calls.",
+        "Connected the app to the Google Gemini API using tRPC and Zod to keep the data flow strict and bug-free. Engineered persistent user sessions by integrating a PostgreSQL database with Drizzle ORM ensuring reliable storage and retrieval of chat histories."
       ],
     },
   },
@@ -151,12 +149,12 @@ export const Projects: ProjectInterface[] = [
     descriptionDetails: {
       paragraphs: [
         "ChatterBox is a high-performance messaging application built to handle scale. It uses Socket.IO for low-latency communication and allows over 1,000 concurrent users to chat instantly.",
-        "Security and data integrity were priorities; the app implements strict JWT authentication and uses bcrypt for encryption, ensuring user data remains secure while syncing in real-time via PostgreSQL.",
+        "Security and data integrity were priorities; the app implements strict JWT authentication and uses bcrypt for securely hashing passwords, ensuring user data remains secure while syncing in real-time via PostgreSQL.",
       ],
       bullets: [
         "Built a real-time messaging app supporting 1,000+ concurrent users using Socket.IO.",
         "Integrated PostgreSQL and Drizzle ORM for reliable real-time data synchronization.",
-        "Implemented secure user authentication with JWT and bcrypt encryption.",
+        "Implemented secure user authentication with JWT and bcrypt for hashing passwords.",
         "Added engagement features like user search, online status indicators, and real-time typing notifications.",
       ],
     },
