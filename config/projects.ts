@@ -1,3 +1,4 @@
+import { Icons } from "@/components/common/icons";
 import { ValidCategory, ValidExpType, ValidSkills } from "./constants";
 
 interface PagesInfoInterface {
@@ -28,6 +29,53 @@ export interface ProjectInterface {
 }
 
 export const Projects: ProjectInterface[] = [
+  {
+    id: "doc-assistant",
+    companyName: "Doc Assistant",
+    type: "Personal",
+    category: ["Full Stack","RAG", "AI Engineering", "Web Dev", "UI/UX"],
+shortDescription: "It is an application built with the focus on allowing you to extract exactly what you are looking for in your pdf. You can litterally chat with your pdf documents",
+websiteLink:"https://docassistant.sohail.world",
+githubLink: "https://github.com/thecodephilic-guy/doc-assistant",
+techStack: [
+  "Express.js", "Next.js", "RAG", "LangChain", "BullMQ", "Redis", "Pgvector", "PostgreSQL", "Google GenAI SDK", "Drizzle ORM", "Clerk", "Google Cloud Platform (GCP)", "Caddy (Reverse Proxy)", "rsync", "Linux", "CI/CD"
+],
+startDate: new Date("2026-02-09"),
+endDate: new Date("2026-03-20"),
+companyLogoImg: "/projects/doc-assistant/logo.png",
+pagesInfoArr: [
+  {
+    title: "Secured by Clerk",
+    description:
+      "Clerk is a comprehensive, developer-focused authentication and user management platform designed to help teams quickly add secure sign-up, sign-in, and profile management to their applications without building a custom backend.",
+    imgArr: ["/projects/doc-assistant/home.png"],
+  },
+  {
+    title: "Interactive PDF Chat",
+    description:
+      "Natural language conversational interface that allows users to seamlessly interact with and extract insights from complex PDF documents.",
+    imgArr: ["/projects/doc-assistant/chat.png"],
+  },
+  {
+    title: "Skeleton UI for better UX",
+    description:
+      "Skeleton UI provides significant user experience (UX) benefits by acting as a temporary wireframe placeholder that indicates content is loading, rather than displaying a blank screen or loading spinner. Key advantages include enhanced perceived performance, reduced user frustration, lower bounce rates, and improved visual continuity by preventing jarring layout shifts.",
+    imgArr: ["/projects/doc-assistant/skeleton.png"],
+  }
+],
+descriptionDetails: {
+      paragraphs: [
+        "Doc Assistant is a full-stack Retrieval-Augmented Generation (RAG) application that allows users to naturally converse with and extract insights from complex PDF documents , utilizing a version-locked LangChain PDFLoader to handle edge cases during text extraction and chunking.",
+        "The backend is structured with strict OOP principles and dual-layer rate limiting to prevent memory crashes from bulk uploads , while an asynchronous worker queue using BullMQ and Redis manages heavy vector storage tasks and triggers real-time UI updates via a database state machine.",
+      ],
+      bullets: [
+        "Built a full-stack Retrieval-Augmented Generation (RAG) app allowing users to chat naturally with complex PDF documents and extract insights.",
+        "Migrated legacy parsing logic to LangChain’s PDFLoader (version-locked to ^1.1.4 for API stability) to handle edge cases in text extraction and chunking.",
+        "Designed an async worker queue using BullMQ and Upstash Redis to offload heavy vector storage tasks, tied to a database state machine (Pending → Processing → Success/Failed) for real-time UI updates.",
+        "Structured the backend with strict OOP principles and added dual-layer rate limiting: 50 req/min for standard API traffic and a strict 5 req/min limit on Multer routes to prevent memory crashes from bulk uploads."
+      ],
+    },
+  },
   {
     id: "nxtlap",
     companyName: "NxtLAP",

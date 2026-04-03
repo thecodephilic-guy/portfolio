@@ -74,7 +74,16 @@ export type ValidSkills =
   | "Socket.IO"
   | "axios"
   | "date-fsn"
-  | "Zustand";
+  | "Zustand"
+  | "RAG"
+  | "LangChain"
+  | "BullMQ"
+  | "Pgvector"
+  | "Clerk"
+  | "Google Cloud Platform (GCP)"
+  | "Caddy (Reverse Proxy)"
+  | "rsync"
+  | "Linux";
 
 export type ValidCategory =
   | "Full Stack"
@@ -83,7 +92,8 @@ export type ValidCategory =
   | "UI/UX"
   | "Web Dev"
   | "AI Engineering"
-  | "Real-time Systems";
+  | "Real-time Systems"
+  | "RAG";
 
 export type ValidExpType = "Personal" | "Professional";
 
