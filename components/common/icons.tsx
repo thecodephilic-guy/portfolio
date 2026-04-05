@@ -33,6 +33,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
+import {DiGoogleCloudPlatform } from "react-icons/di";
 import { AiFillStar } from "react-icons/ai";
 import { BiLaugh, BiLogoPostgresql, BiSolidUser } from "react-icons/bi";
 import { BsInfoCircle, BsQuestionCircle } from "react-icons/bs";
@@ -111,6 +112,7 @@ export const Icons = {
   angular: SiAngular,
   bootstrap: SiBootstrap,
   css3: SiCss3,
+  gcp: DiGoogleCloudPlatform,
   express: SiExpress,
   graphql: SiGraphql,
   html5: SiHtml5,

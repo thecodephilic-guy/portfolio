@@ -78,6 +78,12 @@ export const skillsUnsorted: skillsInterface[] = [
     icon: Icons.css3,
   },
   {
+    name:"Google Cloud Platform (GCP)",
+    description: "Utilize GCP Web Services to build and deploy scalable, reliable, and secure applications.",
+    rating: 4,
+    icon: Icons.gcp,
+  },
+  {
     name: "Redux",
     description:
       "Manage app state effectively using a predictable and centralized state container.",
