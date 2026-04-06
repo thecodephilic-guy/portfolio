@@ -83,7 +83,9 @@ export type ValidSkills =
   | "Google Cloud Platform (GCP)"
   | "Caddy (Reverse Proxy)"
   | "rsync"
-  | "Linux";
+  | "Linux"
+  | "Go (Golang)"
+  | "Makefiles";
 
 export type ValidCategory =
   | "Full Stack"
@@ -93,7 +95,9 @@ export type ValidCategory =
   | "Web Dev"
   | "AI Engineering"
   | "Real-time Systems"
-  | "RAG";
+  | "RAG"
+  | "API"
+  | "Golang";
 
 export type ValidExpType = "Personal" | "Professional";
 

@@ -1,4 +1,3 @@
-import { Icons } from "@/components/common/icons";
 import { ValidCategory, ValidExpType, ValidSkills } from "./constants";
 
 interface PagesInfoInterface {
@@ -25,7 +24,7 @@ export interface ProjectInterface {
   endDate: Date | string;
   companyLogoImg: any;
   descriptionDetails: DescriptionDetailsInterface;
-  pagesInfoArr: PagesInfoInterface[];
+  pagesInfoArr?: PagesInfoInterface[];
 }
 
 export const Projects: ProjectInterface[] = [
@@ -33,37 +32,53 @@ export const Projects: ProjectInterface[] = [
     id: "doc-assistant",
     companyName: "Doc Assistant",
     type: "Personal",
-    category: ["Full Stack","RAG", "AI Engineering", "Web Dev", "UI/UX"],
-shortDescription: "It is an application built with the focus on allowing you to extract exactly what you are looking for in your pdf. You can litterally chat with your pdf documents",
-websiteLink:"https://docassistant.sohail.world",
-githubLink: "https://github.com/thecodephilic-guy/doc-assistant",
-techStack: [
-  "Express.js", "Next.js", "RAG", "LangChain", "BullMQ", "Redis", "Pgvector", "PostgreSQL", "Google GenAI SDK", "Drizzle ORM", "Clerk", "Google Cloud Platform (GCP)", "Caddy (Reverse Proxy)", "rsync", "Linux", "CI/CD"
-],
-startDate: new Date("2026-02-09"),
-endDate: new Date("2026-03-20"),
-companyLogoImg: "/projects/doc-assistant/logo.png",
-pagesInfoArr: [
-  {
-    title: "Secured by Clerk",
-    description:
-      "Clerk is a comprehensive, developer-focused authentication and user management platform designed to help teams quickly add secure sign-up, sign-in, and profile management to their applications without building a custom backend.",
-    imgArr: ["/projects/doc-assistant/home.png"],
-  },
-  {
-    title: "Interactive PDF Chat",
-    description:
-      "Natural language conversational interface that allows users to seamlessly interact with and extract insights from complex PDF documents.",
-    imgArr: ["/projects/doc-assistant/chat.png"],
-  },
-  {
-    title: "Skeleton UI for better UX",
-    description:
-      "Skeleton UI provides significant user experience (UX) benefits by acting as a temporary wireframe placeholder that indicates content is loading, rather than displaying a blank screen or loading spinner. Key advantages include enhanced perceived performance, reduced user frustration, lower bounce rates, and improved visual continuity by preventing jarring layout shifts.",
-    imgArr: ["/projects/doc-assistant/skeleton.png"],
-  }
-],
-descriptionDetails: {
+    category: ["Full Stack", "RAG", "AI Engineering", "Web Dev", "UI/UX"],
+    shortDescription:
+      "It is an application built with the focus on allowing you to extract exactly what you are looking for in your pdf. You can litterally chat with your pdf documents",
+    websiteLink: "https://docassistant.sohail.world",
+    githubLink: "https://github.com/thecodephilic-guy/doc-assistant",
+    techStack: [
+      "Express.js",
+      "Next.js",
+      "RAG",
+      "LangChain",
+      "BullMQ",
+      "Redis",
+      "Pgvector",
+      "PostgreSQL",
+      "Google GenAI SDK",
+      "Drizzle ORM",
+      "Clerk",
+      "Google Cloud Platform (GCP)",
+      "Caddy (Reverse Proxy)",
+      "rsync",
+      "Linux",
+      "CI/CD",
+    ],
+    startDate: new Date("2026-02-09"),
+    endDate: new Date("2026-03-20"),
+    companyLogoImg: "/projects/doc-assistant/logo.png",
+    pagesInfoArr: [
+      {
+        title: "Secured by Clerk",
+        description:
+          "Clerk is a comprehensive, developer-focused authentication and user management platform designed to help teams quickly add secure sign-up, sign-in, and profile management to their applications without building a custom backend.",
+        imgArr: ["/projects/doc-assistant/home.png"],
+      },
+      {
+        title: "Interactive PDF Chat",
+        description:
+          "Natural language conversational interface that allows users to seamlessly interact with and extract insights from complex PDF documents.",
+        imgArr: ["/projects/doc-assistant/chat.png"],
+      },
+      {
+        title: "Skeleton UI for better UX",
+        description:
+          "Skeleton UI provides significant user experience (UX) benefits by acting as a temporary wireframe placeholder that indicates content is loading, rather than displaying a blank screen or loading spinner. Key advantages include enhanced perceived performance, reduced user frustration, lower bounce rates, and improved visual continuity by preventing jarring layout shifts.",
+        imgArr: ["/projects/doc-assistant/skeleton.png"],
+      },
+    ],
+    descriptionDetails: {
       paragraphs: [
         "Doc Assistant is a full-stack Retrieval-Augmented Generation (RAG) application that allows users to naturally converse with and extract insights from complex PDF documents , utilizing a version-locked LangChain PDFLoader to handle edge cases during text extraction and chunking.",
         "The backend is structured with strict OOP principles and dual-layer rate limiting to prevent memory crashes from bulk uploads , while an asynchronous worker queue using BullMQ and Redis manages heavy vector storage tasks and triggers real-time UI updates via a database state machine.",
@@ -72,7 +87,45 @@ descriptionDetails: {
         "Built a full-stack Retrieval-Augmented Generation (RAG) app allowing users to chat naturally with complex PDF documents and extract insights.",
         "Migrated legacy parsing logic to LangChain’s PDFLoader (version-locked to ^1.1.4 for API stability) to handle edge cases in text extraction and chunking.",
         "Designed an async worker queue using BullMQ and Upstash Redis to offload heavy vector storage tasks, tied to a database state machine (Pending → Processing → Success/Failed) for real-time UI updates.",
-        "Structured the backend with strict OOP principles and added dual-layer rate limiting: 50 req/min for standard API traffic and a strict 5 req/min limit on Multer routes to prevent memory crashes from bulk uploads."
+        "Structured the backend with strict OOP principles and added dual-layer rate limiting: 50 req/min for standard API traffic and a strict 5 req/min limit on Multer routes to prevent memory crashes from bulk uploads.",
+      ],
+    },
+  },
+    {
+    id: "greenlight",
+    companyName: "Greenlight",
+    type: "Personal",
+    category: ["Backend", "API", "Golang", "Web Dev"],
+    shortDescription:
+      "A production-grade, high-performance RESTful API server built specifically for movies. It is designed to handle real-world backend complexities rather than just serving as a basic CRUD application.",
+    websiteLink: "https://api.greenlight.sohail.world/v1/healthcheck",
+    githubLink: "https://github.com/thecodephilic-guy/greenlight",
+    techStack: [
+      "Go (Golang)",
+      "PostgreSQL",
+      "Makefiles",      
+      "Google Cloud Platform (GCP)",
+      "Caddy (Reverse Proxy)",
+      "rsync",
+      "Linux",
+      "CI/CD",
+    ],
+    startDate: new Date("2026-01-03"),
+    endDate: new Date("2026-03-17"),
+    companyLogoImg: "/projects/greenlight/logo.png",
+    pagesInfoArr: [
+    ],
+    descriptionDetails: {
+      paragraphs: [
+        "Greenlight is a high-performance RESTful API server built in Go that handles movie data management, featuring full-text search, advanced pagination, and dynamic sorting backed by a PostgreSQL database. I built this project to move beyond basic CRUD applications and tackle the kind of real-world backend complexities found in production environments. To ensure maximum efficiency and low latency, I offloaded heavy operations, like sending transactional emails, into background goroutines so they never block client responses. Instead of relying on a heavy ORM to handle database interactions, I wrote custom raw SQL up and down migrations using the migrate CLI. This gave me complete control over the data model expansion, which I paired with custom Go validators to strictly enforce data integrity before a single byte reaches the database.",
+        "Beyond just writing the application logic, I engineered Greenlight to survive actual internet traffic by implementing a robust security and deployment pipeline. I built stateful token-based authentication and a strict global IP-based rate limiter set at two requests per second, which effectively mitigates automated traffic spikes and protects the endpoints. For the infrastructure, I provisioned a bare-metal Linux server behind a Caddy reverse proxy rather than settling for a simple platform-as-a-service provider. To manage updates, I authored an idempotent, CI/CD-style deployment pipeline using Makefiles. This setup allows me to push code and execute zero-downtime systemd daemon reloads over SSH and rsync. The result is a fully live, secure, and highly scalable API server that demonstrates exactly how I structure, protect, and deploy production-grade software.",
+      ],
+      bullets: [
+        "Engineered a high-performance RESTful API in Go (Golang) for movies, featuring full-text search, advanced pagination, and dynamic sorting backed by a Neon serverless PostgreSQL database.",
+        "Architected alternative SMTP routing via the Resend REST API to overcome cloud provider port restrictions, ensuring reliable email delivery; offloaded all transactional email tasks to background goroutines to guarantee non-blocking, low-latency client responses.",
+        "Built a robust security pipeline, implementing stateful token-based authentication and a global IP-based rate limiter (2 req/sec), successfully mitigating automated traffic spikes and securing the endpoints.",
+        "Authored custom raw SQL up/down migrations using the migrate CLI to dynamically expand the data model without ORM overhead, writing custom Go validators (net/url) to strictly enforce data integrity before database insertion.",
+        "Provisioned a bare-metal Linux server with a Caddy reverse proxy. Authored an idempotent CI/CD-style deployment pipeline using Makefiles, executing zero-downtime systemd daemon reloads via SSH and rsync.",
       ],
     },
   },
@@ -85,21 +138,14 @@ descriptionDetails: {
       "A comprehensive motorsport platform designed to track upcoming races and events across major leagues like F1 and MotoGP.",
     websiteLink: "https://nxtlap.com",
     githubLink: "https://github.com/one-corp/NxtLAP_web",
-    techStack: [
-      "Next.js",
-      "React",
-      "Typescript",
-      "Tailwind CSS",
-      "Vercel"
-    ],
+    techStack: ["Next.js", "React", "Typescript", "Tailwind CSS", "Vercel"],
     startDate: new Date("2025-08-05"),
     endDate: "Present",
     companyLogoImg: "/projects/nxtlap/logo.png",
     pagesInfoArr: [
       {
         title: "Avaible on App Store",
-        description:
-          "The app is also available on Apple's App Store",
+        description: "The app is also available on Apple's App Store",
         imgArr: ["/projects/nxtlap/appstore.png"],
       },
       {
@@ -131,7 +177,19 @@ descriptionDetails: {
       "A full-stack AI counseling platform using Google Gemini and tRPC, capable of handling complex, context-aware career guidance conversations.",
     websiteLink: "https://ai-career-counselor-liard.vercel.app",
     githubLink: "https://github.com/thecodephilic-guy/ai-career-counselor",
-    techStack: ["Next.js", "React", "Tailwind CSS", "Node.js", "Typescript", "tRPC", "TanStack Query", "Drizzle ORM", "PostgreSQL", "Google GenAI SDK", "Zod"],
+    techStack: [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Node.js",
+      "Typescript",
+      "tRPC",
+      "TanStack Query",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "Google GenAI SDK",
+      "Zod",
+    ],
     startDate: new Date("2025-09-03"),
     endDate: new Date("2025-09-10"),
     companyLogoImg: "/projects/ai-career-counselor/logo.png",
@@ -153,7 +211,7 @@ descriptionDetails: {
         description:
           "High-contrast dark theme optimized for visual comfort, reducing eye strain during extended counseling sessions.",
         imgArr: ["/projects/ai-career-counselor/dark.png"],
-      }
+      },
     ],
     descriptionDetails: {
       paragraphs: [
@@ -163,7 +221,7 @@ descriptionDetails: {
       bullets: [
         "Built a smooth, responsive chat interface using Next.js and Tailwind CSS. Implemented live message streaming to reduce perceived latency and significantly improve the user interface responsiveness.",
         "Engineered a human-like chat interface with live typing indicators and streamed responses, reducing perceived latency by 40%.",
-        "Connected the app to the Google Gemini API using tRPC and Zod to keep the data flow strict and bug-free. Engineered persistent user sessions by integrating a PostgreSQL database with Drizzle ORM ensuring reliable storage and retrieval of chat histories."
+        "Connected the app to the Google Gemini API using tRPC and Zod to keep the data flow strict and bug-free. Engineered persistent user sessions by integrating a PostgreSQL database with Drizzle ORM ensuring reliable storage and retrieval of chat histories.",
       ],
     },
   },
@@ -176,15 +234,25 @@ descriptionDetails: {
       "A real-time messaging application supporting 1,000+ concurrent users with JWT authentication and live typing indicators.",
     websiteLink: "https://chatterbox-neon-one.vercel.app/",
     githubLink: "https://github.com/thecodephilic-guy/chatterbox-server",
-    techStack: ["Express.js", "Next.js", "Tailwind CSS", "bcryptjs", "Socket.IO", "Drizzle ORM", "PostgreSQL", "axios", "date-fsn", "Zustand"],
+    techStack: [
+      "Express.js",
+      "Next.js",
+      "Tailwind CSS",
+      "bcryptjs",
+      "Socket.IO",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "axios",
+      "date-fsn",
+      "Zustand",
+    ],
     startDate: new Date("2025-05-06"),
     endDate: new Date("2025-05-02"),
     companyLogoImg: "/projects/chatterbox/logo.png",
     pagesInfoArr: [
       {
         title: "Messaging UI",
-        description:
-          "Clean messaging interface with real-time status updates.",
+        description: "Clean messaging interface with real-time status updates.",
         imgArr: ["/projects/chatterbox/chats.png"],
       },
       {
