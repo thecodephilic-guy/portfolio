@@ -84,7 +84,7 @@ export function MobileNav({ items }: MobileNavProps) {
     <>
       {/* Mobile Top Bar */}
       <header className="fixed top-0 left-0 w-full z-40 md:hidden bg-background/40 backdrop-blur-2xl border-b border-border/50">
-        <div className="flex h-16 items-center justify-center px-4">
+        <div className="flex h-16 items-center justify-between px-4">
           <Link href="/">
             <Image 
               src="/signature-black.png" 
@@ -103,6 +103,7 @@ export function MobileNav({ items }: MobileNavProps) {
               priority
             />
           </Link>
+          <ModeToggle />
         </div>
       </header>
 
@@ -138,9 +139,6 @@ export function MobileNav({ items }: MobileNavProps) {
               </Link>
             );
           })}
-        </div>
-        <div className="border-l border-border/50 pl-2 ml-1 relative z-10 flex-shrink-0">
-          <ModeToggle />
         </div>
         </div>
       </div>
