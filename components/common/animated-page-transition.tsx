@@ -1,47 +1,34 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ReactNode, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 interface AnimatedPageTransitionProps {
   children: ReactNode;
 }
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut" as const,
-    },
-  },
-  exit: {
-    opacity: 0,
-    y: -20,
-    transition: {
-      duration: 0.3,
-      ease: "easeInOut" as const,
-    },
-  },
-};
-
 export const AnimatedPageTransition = ({
   children,
 }: AnimatedPageTransitionProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.inOut" }
+      );
+    },
+    { scope: ref, dependencies: [pathname] }
+  );
+
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={pageVariants}
-      className="w-full"
-    >
+    <div ref={ref} className="w-full" style={{ opacity: 0 }}>
       {children}
-    </motion.div>
+    </div>
   );
 };

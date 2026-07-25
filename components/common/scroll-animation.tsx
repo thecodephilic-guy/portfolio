@@ -1,7 +1,13 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ReactNode, useRef } from "react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, useGSAP);
+}
 
 interface ScrollAnimationProps {
   children: ReactNode;
@@ -15,36 +21,49 @@ export const ScrollAnimation = ({
   effect = "fade",
 }: ScrollAnimationProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
 
-  // Create transform values outside of any function
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [0.2, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.5], [0.8, 1]);
-  const xOffset = useTransform(scrollYProgress, [0, 0.5], [-50, 0]);
-  const rotation = useTransform(scrollYProgress, [0, 0.5], [-10, 0]);
+  useGSAP(
+    () => {
+      let fromVars: gsap.TweenVars = {};
+      let toVars: gsap.TweenVars = {
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top bottom",
+          end: "center center",
+          scrub: true,
+        },
+      };
 
-  // Get the appropriate animation style based on the effect
-  const animationStyle = (() => {
-    switch (effect) {
-      case "fade":
-        return { opacity };
-      case "zoom":
-        return { scale, opacity };
-      case "slide":
-        return { x: xOffset, opacity };
-      case "rotate":
-        return { rotate: rotation, opacity };
-      default:
-        return { opacity };
-    }
-  })();
+      switch (effect) {
+        case "fade":
+          fromVars = { opacity: 0.2 };
+          toVars = { ...toVars, opacity: 1 };
+          break;
+        case "zoom":
+          fromVars = { opacity: 0.2, scale: 0.8 };
+          toVars = { ...toVars, opacity: 1, scale: 1 };
+          break;
+        case "slide":
+          fromVars = { opacity: 0.2, x: -50 };
+          toVars = { ...toVars, opacity: 1, x: 0 };
+          break;
+        case "rotate":
+          fromVars = { opacity: 0.2, rotation: -10 };
+          toVars = { ...toVars, opacity: 1, rotation: 0 };
+          break;
+        default:
+          fromVars = { opacity: 0.2 };
+          toVars = { ...toVars, opacity: 1 };
+      }
+
+      gsap.fromTo(ref.current, fromVars, toVars);
+    },
+    { scope: ref, dependencies: [effect] }
+  );
 
   return (
-    <motion.div ref={ref} className={className} style={animationStyle}>
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 };

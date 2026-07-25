@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ReactNode, useRef } from "react";
 
 interface AnimatedTextProps {
   children: ReactNode;
@@ -10,38 +11,35 @@ interface AnimatedTextProps {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
 }
 
-const textVariants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: (delay: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay,
-      duration: 0.6,
-      ease: "easeOut" as const,
-    },
-  }),
-};
-
 export const AnimatedText = ({
   children,
   delay = 0,
   className = "",
-  as = "div",
+  as: Tag = "div",
 }: AnimatedTextProps) => {
-  const Component = motion[as];
+  const ref = useRef<any>(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          delay: delay,
+          ease: "power2.out",
+        }
+      );
+    },
+    { scope: ref, dependencies: [delay] }
+  );
+
+  const Component = Tag as any;
 
   return (
-    <Component
-      initial="hidden"
-      animate="visible"
-      custom={delay}
-      variants={textVariants}
-      className={className}
-    >
+    <Component ref={ref} className={className} style={{ opacity: 0 }}>
       {children}
     </Component>
   );

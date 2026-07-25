@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Sohail - Software Engineer (Next.js, Go, TypeScript)",
-  authorName: "Mohd Sohail Ansari",
+  authorName: "Sohail",
   username: "thecodephilic-guy",
   description:
     "Mohd Sohail Ansari - Software Engineer and Open Source Contributor. Specializing in full-stack development with Next.js, TypeScript, and Go. Building scalable AI platforms and real-time applications.",

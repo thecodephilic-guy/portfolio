@@ -19,7 +19,7 @@ import { featuredProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.jpg";
+import profileImg from "@/public/profile-img.png";
 
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
@@ -101,8 +101,8 @@ export default function IndexPage() {
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software Engineer and Open Source Contributor. 
-              Specializing in full-stack development with Next.js, TypeScript, and Go. 
+              Software Engineer and Open Source Contributor.
+              Specializing in full-stack development with Next.js, TypeScript, and Go.
             </p>
           </div>
 

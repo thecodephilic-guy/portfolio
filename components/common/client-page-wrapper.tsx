@@ -1,36 +1,30 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ReactNode, useRef } from "react";
 
 interface ClientPageWrapperProps {
   children: ReactNode;
 }
 
-const pageVariants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: "easeInOut" as const,
-    },
-  },
-};
-
 export const ClientPageWrapper = ({ children }: ClientPageWrapperProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        ref.current,
+        { opacity: 0, y: 20 },
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.inOut" }
+      );
+    },
+    { scope: ref }
+  );
+
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      variants={pageVariants}
-      className="w-full"
-    >
+    <div ref={ref} className="w-full" style={{ opacity: 0 }}>
       {children}
-    </motion.div>
+    </div>
   );
 };

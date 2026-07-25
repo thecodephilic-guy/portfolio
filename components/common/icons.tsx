@@ -33,13 +33,15 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import {DiGoogleCloudPlatform } from "react-icons/di";
+import { TbCheckupList } from "react-icons/tb";
+import { GiSkills } from "react-icons/gi";
+import { DiGoogleCloudPlatform } from "react-icons/di";
 import { AiFillStar } from "react-icons/ai";
 import { BiLaugh, BiLogoPostgresql, BiSolidUser } from "react-icons/bi";
 import { BsInfoCircle, BsQuestionCircle } from "react-icons/bs";
 import { CgSandClock } from "react-icons/cg";
-import { FaBloggerB, FaGolang, FaPenFancy } from "react-icons/fa6";
-import {FaCheckCircle} from "react-icons/fa"
+import { FaBloggerB, FaGolang, FaPenFancy, FaBlog } from "react-icons/fa6";
+import { FaCheckCircle } from "react-icons/fa"
 import {
   HiBriefcase,
   HiLightBulb,
@@ -103,6 +105,9 @@ export const Icons = {
   chevronDown: ChevronDown,
   laughEmoji: BiLaugh,
   check: Check,
+  projects: TbCheckupList,
+  skills: GiSkills,
+  blog: FaBlog,
   infoMark: BsInfoCircle,
   questionMark: BsQuestionCircle,
   link: HiOutlineLink,

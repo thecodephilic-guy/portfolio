@@ -1,5 +1,5 @@
 import { MainNav } from "@/components/common/main-nav";
-import { ModeToggle } from "@/components/common/mode-toggle";
+import { MobileNav } from "@/components/common/mobile-nav";
 import { SiteFooter } from "@/components/common/site-footer";
 import { routesConfig } from "@/config/routes";
 
@@ -10,21 +10,15 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="fixed top-0 container left-0 w-full z-50 bg-background">
-        <div className="flex h-20 items-center justify-between py-6">
-          <MainNav items={routesConfig.mainNav}>
-            <div className="flex items-center gap-3">
-              {/* <GitHubStarBadge className="w-full justify-center" /> */}
-              <ModeToggle />
-            </div>
-          </MainNav>
-          <nav className="flex items-center gap-5">
-            {/* <GitHubStarBadge /> */}
-            <ModeToggle />
-          </nav>
-        </div>
+      {/* Desktop Header - Apple Glass UI */}
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:flex items-center rounded-full bg-background/60 backdrop-blur-lg border border-border/50 shadow-xl transition-all">
+        <MainNav items={routesConfig.mainNav} />
       </header>
-      <main className="container flex-1 sm:pt-20 pt-28 px-4">{children}</main>
+
+      {/* Mobile Nav (Top Bar + Bottom Dock) */}
+      <MobileNav items={routesConfig.mainNav} />
+
+      <main className="container flex-1 pt-24 md:pt-32 px-4 pb-28 md:pb-12">{children}</main>
       <SiteFooter />
     </div>
   );
