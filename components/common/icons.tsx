@@ -33,7 +33,7 @@ import {
   X,
   Zap,
 } from "lucide-react";
-import { TbCheckupList } from "react-icons/tb";
+import { TbCheckupList, TbHome } from "react-icons/tb";
 import { GiSkills } from "react-icons/gi";
 import { DiGoogleCloudPlatform } from "react-icons/di";
 import { AiFillStar } from "react-icons/ai";
@@ -106,6 +106,7 @@ export const Icons = {
   laughEmoji: BiLaugh,
   check: Check,
   projects: TbCheckupList,
+  home: TbHome,
   skills: GiSkills,
   blog: FaBlog,
   infoMark: BsInfoCircle,

@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Train_One } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
 import * as React from "react";
 import { ModeToggle } from "@/components/common/mode-toggle";
@@ -25,11 +26,18 @@ export function MobileNav({ items }: MobileNavProps) {
   const highlighterRef = React.useRef<HTMLDivElement>(null);
   const itemRefs = React.useRef<(HTMLAnchorElement | null)[]>([]);
 
-  // Track active index based on segment
+  // Inject Home at the start
+  const navItems = React.useMemo(() => [
+    { title: "Home", href: "/" },
+    ...items
+  ], [items]);
+
+  // Track active index based on segment or home
   const activeIndex = React.useMemo(() => {
-    const index = items.findIndex(item => item.href.startsWith(`/${segment}`));
+    if (!segment) return 0; // Home is active if no segment
+    const index = navItems.findIndex(item => item.href.startsWith(`/${segment}`));
     return index !== -1 ? index : -1;
-  }, [segment, items]);
+  }, [segment, navItems]);
 
   useGSAP(
     () => {
@@ -61,13 +69,14 @@ export function MobileNav({ items }: MobileNavProps) {
 
   const getIcon = (title: string) => {
     switch (title.toLowerCase()) {
-      case "projects": return <Icons.projects className="w-5 h-5" />;
-      case "experience": return <Icons.work className="w-5 h-5" />;
-      case "contributions": return <Icons.gitBranch className="w-5 h-5" />;
-      case "skills": return <Icons.skills className="w-5 h-5" />;
-      case "contact": return <Icons.contact className="w-5 h-5" />;
-      case "blogs": return <Icons.blog className="w-5 h-5" />;
-      default: return <Icons.chevronRight className="w-5 h-5" />;
+      case "home": return <Icons.home className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "projects": return <Icons.projects className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "experience": return <Icons.work className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "contributions": return <Icons.gitBranch className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "skills": return <Icons.skills className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "contact": return <Icons.contact className="w-4 h-4 sm:w-5 sm:h-5" />;
+      case "blogs": return <Icons.blog className="w-4 h-4 sm:w-5 sm:h-5" />;
+      default: return <Icons.chevronRight className="w-4 h-4 sm:w-5 sm:h-5" />;
     }
   }
 
@@ -77,28 +86,42 @@ export function MobileNav({ items }: MobileNavProps) {
       <header className="fixed top-0 left-0 w-full z-40 md:hidden bg-background/40 backdrop-blur-2xl border-b border-border/50">
         <div className="flex h-16 items-center justify-center px-4">
           <Link href="/">
-            <span className={cn(trainOne.className, "text-xl font-bold")}>
-              {siteConfig.authorName}
-            </span>
+            <Image 
+              src="/signature-black.png" 
+              alt={siteConfig.authorName} 
+              width={120} 
+              height={48} 
+              className="theme-logo-black h-7 w-auto object-contain"
+              priority
+            />
+            <Image 
+              src="/signature-white.png" 
+              alt={siteConfig.authorName} 
+              width={120} 
+              height={48} 
+              className="theme-logo-white h-7 w-auto object-contain"
+              priority
+            />
           </Link>
         </div>
       </header>
 
       {/* Mobile Bottom Dock */}
-      <div
-        ref={dockRef}
-        style={{ opacity: 0 }}
-        className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:hidden flex items-center px-4 py-3 rounded-full bg-background/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all w-[90vw] max-w-[400px]"
-      >
-        <div className="relative flex items-center justify-around flex-grow">
+      <div className="fixed bottom-6 left-0 w-full z-50 md:hidden flex justify-center pointer-events-none">
+        <div 
+          ref={dockRef}
+          style={{ opacity: 0 }}
+          className="pointer-events-auto flex items-center px-2 py-2 rounded-full bg-background/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all w-[96vw] max-w-[450px]"
+        >
+        <div className="relative flex items-center justify-around flex-grow gap-1">
           {/* Animated Highlighter Pill */}
           <div
             ref={highlighterRef}
             className="absolute left-0 h-full bg-foreground/10 rounded-full"
-            style={{ width: "3rem" }} // Default width before first render
+            style={{ width: "2.5rem" }} // Default width before first render
           />
 
-          {items.map((item, index) => {
+          {navItems.map((item, index) => {
             const isActive = activeIndex === index;
             return (
               <Link
@@ -106,7 +129,7 @@ export function MobileNav({ items }: MobileNavProps) {
                 href={item.disabled ? "#" : item.href}
                 ref={(el) => { itemRefs.current[index] = el; }}
                 className={cn(
-                  "p-3 rounded-full flex items-center justify-center min-w-[3rem] relative z-10 transition-colors",
+                  "p-2 rounded-full flex items-center justify-center min-w-[2.5rem] relative z-10 transition-colors",
                   isActive ? "text-foreground" : "text-foreground/60 hover:text-foreground",
                   item.disabled && "cursor-not-allowed opacity-60"
                 )}
@@ -116,8 +139,9 @@ export function MobileNav({ items }: MobileNavProps) {
             );
           })}
         </div>
-        <div className="border-l border-border/50 pl-4 ml-2 relative z-10 flex-shrink-0">
+        <div className="border-l border-border/50 pl-2 ml-1 relative z-10 flex-shrink-0">
           <ModeToggle />
+        </div>
         </div>
       </div>
     </>

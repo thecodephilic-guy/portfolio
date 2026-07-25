@@ -248,6 +248,26 @@
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
   }
+
+  .theme-logo-white {
+    display: none;
+  }
+  .theme-logo-black {
+    display: block;
+  }
+
+  .dark .theme-logo-white,
+  .cyberpunk .theme-logo-white,
+  .aurora .theme-logo-white,
+  .synthwave .theme-logo-white {
+    display: block;
+  }
+  .dark .theme-logo-black,
+  .cyberpunk .theme-logo-black,
+  .aurora .theme-logo-black,
+  .synthwave .theme-logo-black {
+    display: none;
+  }
 }
 
 @layer base {

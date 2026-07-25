@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { Train_One } from "next/font/google";
 import Link from "next/link";
+import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
 import * as React from "react";
 import { ModeToggle } from "@/components/common/mode-toggle";
@@ -33,9 +34,22 @@ export function MainNav({ items }: { items?: any[] }) {
   return (
     <div className="flex items-center gap-6 px-6 py-3" ref={containerRef} style={{ opacity: 0 }}>
       <Link href="/" className="flex items-center space-x-2">
-        <span className={cn(trainOne.className, "text-xl font-bold")}>
-          {siteConfig.authorName}
-        </span>
+        <Image 
+          src="/signature-black.png" 
+          alt={siteConfig.authorName} 
+          width={120} 
+          height={48} 
+          className="theme-logo-black h-8 w-auto object-contain"
+          priority
+        />
+        <Image 
+          src="/signature-white.png" 
+          alt={siteConfig.authorName} 
+          width={120} 
+          height={48} 
+          className="theme-logo-white h-8 w-auto object-contain"
+          priority
+        />
       </Link>
       {items?.length ? (
         <nav className="flex items-center gap-6">
