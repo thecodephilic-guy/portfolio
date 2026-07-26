@@ -1,5 +1,10 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 
 import { Icons } from "@/components/common/icons";
 import { Button } from "@/components/ui/button";
@@ -11,8 +16,38 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const { contextSafe } = useGSAP({ scope: cardRef });
+
+  const handleMouseEnter = contextSafe(() => {
+    gsap.to(cardRef.current, {
+      y: -8,
+      scale: 1.02,
+      duration: 0.4,
+      ease: "power3.out",
+      boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)",
+      overwrite: "auto",
+    });
+  });
+
+  const handleMouseLeave = contextSafe(() => {
+    gsap.to(cardRef.current, {
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "elastic.out(1, 0.7)", // Springy bounce back
+      clearProps: "boxShadow", 
+      overwrite: "auto",
+    });
+  });
+
   return (
-    <div className="relative p-6 w-full bg-background/40 backdrop-blur-xl border border-border/50 rounded-lg h-full flex flex-col shadow-lg transition-all hover:-translate-y-1 hover:bg-background/60">
+    <div 
+      ref={cardRef}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative p-6 w-full bg-background/40 backdrop-blur-xl border border-border/50 rounded-lg h-full flex flex-col shadow-lg transition-colors duration-300 hover:bg-background/60"
+    >
       <div className="relative w-full h-[200px] flex-shrink-0">
         <Image
           className="rounded-lg border border-border object-cover"
@@ -32,7 +67,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           <ChipContainer textArr={project.category} />
         </div>
         <Link href={`/projects/${project.id}`} className="mt-auto">
-          <Button variant={"default"} className="mt-2 w-full sm:w-auto">
+          <Button variant={"default"} className="mt-2 w-full sm:w-auto text-foreground font-semibold">
             Read more
             <Icons.chevronRight className="w-4 ml-1" />
           </Button>

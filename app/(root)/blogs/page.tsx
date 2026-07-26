@@ -15,7 +15,9 @@ export default function BlogPage() {
       title={pagesConfig.blogs.title}
       description={pagesConfig.blogs.description}
     >
-      <BlogCard blogs={allBlogs} />
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <BlogCard blogs={allBlogs} />
+      </div>
     </PageContainer>
   );
 }

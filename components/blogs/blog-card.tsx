@@ -1,3 +1,7 @@
+"use client";
+
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Link from "next/link";
 import { Icons } from "@/components/common/icons";
 import { blogsInterface } from "@/config/blogs";
@@ -7,6 +11,30 @@ interface BlogCardProps {
 }
 
 export default function BlogCard({ blogs }: BlogCardProps) {
+  const { contextSafe } = useGSAP();
+
+  const handleMouseEnter = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: -8,
+      scale: 1.02,
+      duration: 0.4,
+      ease: "power3.out",
+      boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)",
+      overwrite: "auto",
+    });
+  });
+
+  const handleMouseLeave = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "elastic.out(1, 0.7)",
+      clearProps: "boxShadow", 
+      overwrite: "auto",
+    });
+  });
+
   return (
     <div className="mx-auto grid justify-center gap-4 grid-cols-1 items-stretch">
       {blogs.map((blog, id) => (
@@ -15,7 +43,11 @@ export default function BlogCard({ blogs }: BlogCardProps) {
           key={id} // Removed target="_blank" for smooth internal Next.js routing
           className="w-full min-w-0 h-full"
         >
-          <div className="relative rounded-lg border border-border/50 bg-background/40 backdrop-blur-xl shadow-lg hover:-translate-y-1 hover:bg-background/60 transition-all w-full h-full flex flex-col">
+          <div 
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className="relative rounded-lg border border-border/50 bg-background/40 backdrop-blur-xl shadow-lg hover:bg-background/60 transition-colors duration-300 w-full h-full flex flex-col"
+          >
             <Icons.externalLink
               size={35}
               className="absolute bottom-3 right-3 border border-border/50 bg-background/40 backdrop-blur-md rounded-full p-1.5 sm:p-2 cursor-pointer text-muted-foreground z-10 w-8 h-8 sm:w-10 sm:h-10"

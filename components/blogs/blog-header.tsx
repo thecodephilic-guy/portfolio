@@ -14,8 +14,8 @@ export default function BlogHeader({
   readingTime,
 }: BlogHeaderProps) {
   return (
-    <header className="mb-8 border-b pb-8">
-      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+    <div className="mb-8 border-b border-border/50 pb-8">
+      <h1 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-foreground">
         {title}
       </h1>
       <div className="flex items-center space-x-4 text-sm text-muted-foreground">
@@ -28,6 +28,6 @@ export default function BlogHeader({
         {<span>•</span>}
         {<span>{`${readingTime} min read`}</span>}
       </div>
-    </header>
+    </div>
   );
 }

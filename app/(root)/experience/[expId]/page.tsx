@@ -145,65 +145,67 @@ export default async function ExperienceDetailPage({
             </Link>
           </Button>
         </AnimatedSection>
-
-        <AnimatedSection delay={0.2}>
-          <Card className="overflow-hidden rounded-lg border bg-background p-2 transition-all duration-300">
-            <CardHeader className="pb-6">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-                    {experience.logo && (
-                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
-                        <Image
-                          src={experience.logo}
-                          alt={experience.company}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-contain p-2"
-                        />
+        
+        <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+          <AnimatedSection delay={0.2}>
+            <Card className="overflow-hidden rounded-lg border bg-background p-2 transition-all duration-300">
+              <CardHeader className="pb-6">
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+                      {experience.logo && (
+                        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">
+                          <Image
+                            src={experience.logo}
+                            alt={experience.company}
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-contain p-2"
+                          />
+                        </div>
+                      )}
+                      <div className="flex-1 text-center sm:text-left">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
+                          {experience.position}
+                        </h1>
+                        <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
+                          <span className="text-md font-medium text-muted-foreground">
+                            {experience.company}
+                          </span>
+                          {experience.companyUrl && (
+                            <a
+                              href={experience.companyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                              <Icons.externalLink className="w-4 h-4" />
+                            </a>
+                          )}
+                        </div>
+                        <p className="text-muted-foreground">
+                          {experience.location}
+                        </p>
                       </div>
-                    )}
-                    <div className="flex-1 text-center sm:text-left">
-                      <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
-                        {experience.position}
-                      </h1>
-                      <div className="flex items-center justify-center sm:justify-start gap-2 mb-2">
-                        <span className="text-md font-medium text-muted-foreground">
-                          {experience.company}
-                        </span>
-                        {experience.companyUrl && (
-                          <a
-                            href={experience.companyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
-                          >
-                            <Icons.externalLink className="w-4 h-4" />
-                          </a>
+                    </div>
+                    <div className="flex justify-center sm:justify-end">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
+                        {getDurationText(
+                          experience.startDate,
+                          experience.endDate
                         )}
-                      </div>
-                      <p className="text-muted-foreground">
-                        {experience.location}
-                      </p>
+                      </span>
                     </div>
                   </div>
-                  <div className="flex justify-center sm:justify-end">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20">
-                      {getDurationText(
-                        experience.startDate,
-                        experience.endDate
-                      )}
-                    </span>
-                  </div>
                 </div>
-              </div>
-            </CardHeader>
+              </CardHeader>
 
-            <CardContent>
-              <ResponsiveTabs items={tabItems} defaultValue="summary" />
-            </CardContent>
-          </Card>
-        </AnimatedSection>
+              <CardContent>
+                <ResponsiveTabs items={tabItems} defaultValue="summary" />
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        </div>
 
         <AnimatedSection delay={0.4} className="flex justify-center mt-8">
           <Button variant="outline" asChild>

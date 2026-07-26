@@ -16,9 +16,11 @@ export default function ContributonsPage() {
       title={pagesConfig.contributions.title}
       description={pagesConfig.contributions.description}
     >
-      <ContributionCard
-        contributions={contributionsUnsorted}
-      />
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <ContributionCard
+          contributions={contributionsUnsorted}
+        />
+      </div>
     </PageContainer>
   );
 }

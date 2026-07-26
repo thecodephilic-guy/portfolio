@@ -1,5 +1,7 @@
 "use client";
 
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -29,8 +31,36 @@ interface ExperienceCardProps {
 }
 
 const ExperienceCard: React.FC<ExperienceCardProps> = ({ experience }) => {
+  const { contextSafe } = useGSAP();
+
+  const handleMouseEnter = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: -8,
+      scale: 1.02,
+      duration: 0.4,
+      ease: "power3.out",
+      boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)",
+      overwrite: "auto",
+    });
+  });
+
+  const handleMouseLeave = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    gsap.to(e.currentTarget, {
+      y: 0,
+      scale: 1,
+      duration: 0.6,
+      ease: "elastic.out(1, 0.7)",
+      clearProps: "boxShadow", 
+      overwrite: "auto",
+    });
+  });
+
   return (
-    <div className="group relative overflow-hidden rounded-lg border border-border/50 bg-background/40 backdrop-blur-xl shadow-lg transition-all duration-300 hover:-translate-y-1 hover:bg-background/60 p-4 sm:p-6">
+    <div 
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="group relative overflow-hidden rounded-lg border border-border/50 bg-background/40 backdrop-blur-xl shadow-lg transition-colors duration-300 hover:bg-background/60 p-4 sm:p-6"
+    >
       <div className="flex items-start gap-3 sm:gap-4">
         {experience.logo && (
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg border-2 border-border overflow-hidden bg-white flex-shrink-0">

@@ -4,20 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 47.4% 11.2%;
+    /* Liquid Glass Theme Variables */
+    --theme-bg: #e5e5ea; 
+    --theme-text: #000000;
+    --theme-text-muted: rgba(0, 0, 0, 0.5);
+    
+    /* Light Mode Glass */
+    --glass-bg: rgba(255, 255, 255, 0.55);
+    --glass-border: rgba(255, 255, 255, 0.8);
+    --glass-shadow: transparent;
+    --glass-inset: rgba(255, 255, 255, 0.9);
+    --glass-hover: rgba(0, 0, 0, 0.05);
+    --separator: rgba(0, 0, 0, 0.08);
+    --widget-fill: rgba(255, 255, 255, 0.9);
+
+    /* Shadcn Fallback Variables */
+    --background: 225 15% 91%;
+    --foreground: 0 0% 0%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 47.4% 11.2%;
+    --popover: 225 15% 91%;
+    --popover-foreground: 0 0% 0%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 47.4% 11.2%;
+    --card: 225 15% 91%;
+    --card-foreground: 0 0% 0%;
 
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
@@ -33,15 +48,31 @@
 
     --ring: 215 20.2% 65.1%;
 
-    --radius: 0.5rem;
+    --radius: 1.5rem;
 
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
+    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23000000' stroke-opacity='0.03' stroke-width='1'%3E%3Cpath d='M0 10l10-10 20 20 10-10M0 30l10-10 20 20 10-10'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   .dark {
-    --background: 224 71% 4%;
-    --foreground: 213 31% 91%;
+    /* Liquid Glass Theme Variables */
+    --theme-bg: #000000;
+    --theme-text: #ffffff;
+    --theme-text-muted: rgba(255, 255, 255, 0.6);
+    
+    /* Dark Mode Glass */
+    --glass-bg: rgba(30, 30, 35, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --glass-shadow: rgba(0, 0, 0, 0.5);
+    --glass-inset: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(255, 255, 255, 0.1);
+    --separator: rgba(255, 255, 255, 0.1);
+    --widget-fill: rgba(255, 255, 255, 0.85);
+
+    /* Shadcn Fallback Variables */
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
@@ -49,14 +80,14 @@
     --accent: 216 34% 17%;
     --accent-foreground: 210 40% 98%;
 
-    --popover: 224 71% 4%;
+    --popover: 0 0% 0%;
     --popover-foreground: 215 20.2% 65.1%;
 
     --border: 216 34% 17%;
     --input: 216 34% 17%;
 
-    --card: 224 71% 4%;
-    --card-foreground: 213 31% 91%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 1.2%;
@@ -69,209 +100,14 @@
 
     --ring: 216 34% 17%;
 
-    --radius: 0.5rem;
+    --radius: 1.5rem;
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
+    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M0 10l10-10 20 20 10-10M0 30l10-10 20 20 10-10'/%3E%3C/g%3E%3C/svg%3E");
   }
 
-  .retro {
-    --background: 39 70% 90%;
-    --foreground: 20 80% 20%;
-
-    --muted: 30 40% 85%;
-    --muted-foreground: 20 40% 30%;
-
-    --popover: 39 70% 90%;
-    --popover-foreground: 20 80% 20%;
-
-    --border: 20 40% 70%;
-    --input: 20 40% 70%;
-
-    --card: 39 60% 85%;
-    --card-foreground: 20 80% 20%;
-
-    --primary: 20 80% 50%;
-    --primary-foreground: 39 100% 97%;
-
-    --secondary: 30 60% 80%;
-    --secondary-foreground: 20 80% 20%;
-
-    --accent: 20 80% 50%;
-    --accent-foreground: 39 100% 97%;
-
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 39 100% 97%;
-
-    --ring: 20 40% 70%;
-
-    --radius: 0.125rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .cyberpunk {
-    --background: 235 85% 8%;
-    --foreground: 180 100% 75%;
-
-    --muted: 235 70% 15%;
-    --muted-foreground: 180 70% 55%;
-
-    --popover: 235 85% 8%;
-    --popover-foreground: 180 100% 75%;
-
-    --border: 326 100% 60%;
-    --input: 326 100% 60%;
-
-    --card: 235 80% 12%;
-    --card-foreground: 180 100% 75%;
-
-    --primary: 326 100% 60%;
-    --primary-foreground: 235 100% 98%;
-
-    --secondary: 196 100% 60%;
-    --secondary-foreground: 235 85% 8%;
-
-    --accent: 58 100% 60%;
-    --accent-foreground: 235 85% 8%;
-
-    --destructive: 0 100% 60%;
-    --destructive-foreground: 235 100% 98%;
-
-    --ring: 326 100% 60%;
-
-    --radius: 0.125rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .aurora {
-    --background: 220 40% 10%;
-    --foreground: 160 100% 90%;
-
-    --muted: 220 30% 20%;
-    --muted-foreground: 160 70% 70%;
-
-    --popover: 220 40% 10%;
-    --popover-foreground: 160 100% 90%;
-
-    --border: 280 80% 60%;
-    --input: 280 80% 60%;
-
-    --card: 220 35% 15%;
-    --card-foreground: 160 100% 90%;
-
-    --primary: 160 100% 50%;
-    --primary-foreground: 220 40% 10%;
-
-    --secondary: 280 80% 60%;
-    --secondary-foreground: 220 40% 10%;
-
-    --accent: 320 80% 60%;
-    --accent-foreground: 220 40% 10%;
-
-    --destructive: 0 90% 60%;
-    --destructive-foreground: 220 40% 10%;
-
-    --ring: 280 80% 60%;
-
-    --radius: 1rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .synthwave {
-    --background: 260 15% 10%;
-    --foreground: 330 100% 90%;
-
-    --muted: 260 20% 20%;
-    --muted-foreground: 330 70% 70%;
-
-    --popover: 260 15% 10%;
-    --popover-foreground: 330 100% 90%;
-
-    --border: 300 100% 60%;
-    --input: 300 100% 60%;
-
-    --card: 260 15% 15%;
-    --card-foreground: 330 100% 90%;
-
-    --primary: 300 100% 60%;
-    --primary-foreground: 260 15% 10%;
-
-    --secondary: 190 100% 60%;
-    --secondary-foreground: 260 15% 10%;
-
-    --accent: 60 100% 60%;
-    --accent-foreground: 260 15% 10%;
-
-    --destructive: 350 100% 60%;
-    --destructive-foreground: 260 15% 10%;
-
-    --ring: 300 100% 60%;
-
-    --radius: 0.5rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .paper {
-    --background: 40 30% 95%;
-    --foreground: 25 50% 20%;
-
-    --muted: 30 20% 90%;
-    --muted-foreground: 25 30% 40%;
-
-    --popover: 40 30% 95%;
-    --popover-foreground: 25 50% 20%;
-
-    --border: 25 30% 80%;
-    --input: 25 30% 80%;
-
-    --card: 35 25% 92%;
-    --card-foreground: 25 50% 20%;
-
-    --primary: 25 95% 40%;
-    --primary-foreground: 40 30% 98%;
-
-    --secondary: 15 60% 85%;
-    --secondary-foreground: 25 50% 20%;
-
-    --accent: 15 60% 85%;
-    --accent-foreground: 25 50% 20%;
-
-    --destructive: 0 70% 50%;
-    --destructive-foreground: 40 30% 98%;
-
-    --ring: 25 30% 80%;
-
-    --radius: 0.25rem;
-    --d: 700ms;
-    --e: cubic-bezier(0.19, 1, 0.22, 1);
-  }
-
-  .theme-logo-white {
-    display: none;
-  }
-  .theme-logo-black {
-    display: block;
-  }
-
-  .dark .theme-logo-white,
-  .cyberpunk .theme-logo-white,
-  .aurora .theme-logo-white,
-  .synthwave .theme-logo-white {
-    display: block;
-  }
-  .dark .theme-logo-black,
-  .cyberpunk .theme-logo-black,
-  .aurora .theme-logo-black,
-  .synthwave .theme-logo-black {
-    display: none;
-  }
-}
-
-@layer base {
   * {
+    -webkit-tap-highlight-color: transparent;
     @apply border-border;
   }
 
@@ -280,226 +116,81 @@
     overflow-x: hidden;
   }
 
+  .theme-logo-white { display: none; }
+  .theme-logo-black { display: block; }
+  .dark .theme-logo-white { display: block; }
+  .dark .theme-logo-black { display: none; }
+
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings:
-      "rlig"1,
-      "calt"1;
+    font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
+    font-feature-settings: "rlig"1, "calt"1;
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: var(--bg-pattern);
+    pointer-events: none;
   }
 }
 
-.card {
-  position: relative;
-  display: flex;
-  align-items: flex-end;
-  overflow: hidden;
-  /* padding: 1rem; */
-  width: 100%;
-  min-height: 200px;
-  text-align: center;
-  color: hsl(var(--foreground));
-  background-color: hsl(var(--background));
-  box-shadow:
-    0 1px 1px rgba(0, 0, 0, 0.1),
-    0 2px 2px rgba(0, 0, 0, 0.1),
-    0 4px 4px rgba(0, 0, 0, 0.1),
-    0 8px 8px rgba(0, 0, 0, 0.1),
-    0 16px 16px rgba(0, 0, 0, 0.1);
-}
-
-@media (min-width: 600px) {
-  .card {
-    height: 300px;
-  }
-}
-
-/* .card:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 110%;
-  background-size: cover;
-  background-position: 0 0;
-  transition: transform calc(var(--d) * 1.5) var(--e);
-  pointer-events: none;
-} */
-
-.card:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 105%;
-  height: 200%;
-  pointer-events: none;
-  background-image: linear-gradient(to bottom,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 0.009) 11.7%,
-      rgba(0, 0, 0, 0.034) 22.1%,
-      rgba(0, 0, 0, 0.072) 31.2%,
-      rgba(0, 0, 0, 0.123) 39.4%,
-      rgba(0, 0, 0, 0.182) 46.6%,
-      rgba(0, 0, 0, 0.249) 53.1%,
-      rgba(0, 0, 0, 0.32) 58.9%,
-      rgba(0, 0, 0, 0.394) 64.3%,
-      rgba(0, 0, 0, 0.468) 69.3%,
-      rgba(0, 0, 0, 0.54) 74.1%,
-      rgba(0, 0, 0, 0.607) 78.8%,
-      rgba(0, 0, 0, 0.668) 83.6%,
-      rgba(0, 0, 0, 0.721) 88.7%,
-      rgba(0, 0, 0, 0.762) 94.1%,
-      rgba(0, 0, 0, 0.79) 100%);
-  transform: translateY(-50%);
-  transition: transform calc(var(--d) * 2) var(--e);
-}
-
-.content {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-  transition: transform var(--d) var(--e);
-  z-index: 1;
-}
-
-.content>*+* {
-  margin-top: 1rem;
-}
-
-.title {
-  font-size: 1.3rem;
-  font-weight: bold;
-  line-height: 1.2;
-}
-
-.copy {
-  font-family: var(--font-serif);
-  font-size: 1.125rem;
-  font-style: italic;
-  line-height: 1.35;
-}
-
-.btn {
-  cursor: pointer;
-  margin-top: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.65rem;
-  font-weight: bold;
-  letter-spacing: 0.025rem;
-  text-transform: uppercase;
-  color: hsl(var(--primary-foreground));
-  background-color: hsl(var(--primary));
-  border: none;
-}
-
-.btn:hover {
-  background-color: hsl(var(--primary) / 0.9);
-}
-
-.btn:focus {
-  outline: 1px dashed yellow;
-  outline-offset: 3px;
-}
-
-@media (hover: hover) and (min-width: 600px) {
-  .card:after {
-    transform: translateY(0);
+@layer components {
+  /* LIQUID GLASS COMPONENT BASE */
+  .liquid-panel {
+    background-color: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+    box-shadow: 
+        0 20px 40px -10px var(--glass-shadow), 
+        inset 0 1px 1px 0 var(--glass-inset);
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
-  .content {
-    transform: translateY(calc(100% - 4.5rem));
+  /* Interactive states */
+  .glass-btn:active { transform: scale(0.95); opacity: 0.8; transition: transform 0.1s ease, opacity 0.1s ease; }
+  .glass-btn { transition: all 0.2s ease; cursor: pointer; }
+  .glass-hover:hover { background-color: var(--glass-hover); }
+
+  /* Apply Glass Vibe to all buttons and cards globally */
+  /* Target generic UI elements that usually have solid backgrounds */
+  button:not(.nav-item):not(.glass-btn):not([class*="bg-transparent"]):not([variant="ghost"]),
+  [role="button"]:not(.glass-btn):not([class*="bg-transparent"]),
+  .card,
+  [class*="bg-card"],
+  [class*="bg-background"]:not(body),
+  [class*="bg-muted"],
+  .rounded-xl,
+  .rounded-2xl,
+  .rounded-3xl,
+  header:not([class*="bg-transparent"]) {
+    @apply liquid-panel !important;
   }
 
-  .content>*:not(.title) {
-    opacity: 0;
-    transform: translateY(1rem);
-    transition:
-      transform var(--d) var(--e),
-      opacity var(--d) var(--e);
+  footer:not([class*="bg-transparent"]) {
+    @apply liquid-panel !important;
+    border-radius: 3rem 3rem 0 0 !important;
+  }
+  
+  /* Apply hover effect globally to interactive items */
+  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) {
+    @apply glass-hover;
   }
 
-  .card:hover,
-  .card:focus-within {
-    align-items: center;
-  }
-
-  .card:hover:before,
-  .card:focus-within:before {
-    transform: translateY(-4%);
-  }
-
-  .card:hover:after,
-  .card:focus-within:after {
-    transform: translateY(-50%);
-  }
-
-  .card:hover .content,
-  .card:focus-within .content {
-    transform: translateY(0);
-  }
-
-  .card:hover .content>*:not(.title),
-  .card:focus-within .content>*:not(.title) {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: calc(var(--d) / 8);
-  }
-
-  .card:focus-within:before,
-  .card:focus-within:after,
-  .card:focus-within .content,
-  .card:focus-within .content>*:not(.title) {
-    transition-duration: 0s;
-  }
-}
-
-@supports (animation: grow 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards) {
-  .tick {
-    stroke-opacity: 0;
-    stroke-dasharray: 29px;
-    stroke-dashoffset: 29px;
-    animation: draw 0.5s cubic-bezier(0.25, 0.25, 0.25, 1) forwards;
-    animation-delay: 0.6s;
-  }
-
-  .circle {
-    fill-opacity: 0;
-    stroke: hsl(var(--primary));
-    stroke-width: 16px;
-    transform-origin: center;
-    transform: scale(0);
-    animation: grow 1s cubic-bezier(0.25, 0.25, 0.25, 1.25) forwards;
-  }
-}
-
-@keyframes grow {
-  60% {
-    transform: scale(0.8);
-    stroke-width: 4px;
-    fill-opacity: 0;
-  }
-
-  100% {
-    transform: scale(0.9);
-    stroke-width: 8px;
-    fill-opacity: 1;
-    fill: hsl(var(--primary));
-  }
-}
-
-@keyframes draw {
-
-  0%,
-  100% {
-    stroke-opacity: 1;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-  }
+  button:focus, input:focus { outline: none; }
+  
+  /* Utilities */
+  .border-separator { border-color: var(--separator); transition: border-color 0.4s ease; }
+  .text-muted { color: var(--theme-text-muted); transition: color 0.4s ease; }
+  .bg-separator { background-color: var(--separator); transition: background-color 0.4s ease; }
+  ::-webkit-scrollbar { display: none; }
 }

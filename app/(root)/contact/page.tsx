@@ -14,13 +14,15 @@ export default function ContactPage() {
       title={pagesConfig.contact.title}
       description={pagesConfig.contact.description}
     >
-      <div className="flex flex-col lg:flex-row">
-        <div className="flex-1">
-          <ContactForm />
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <div className="flex flex-col lg:flex-row">
+          <div className="flex-1">
+            <ContactForm />
+          </div>
+          {/* <div className="flex-1 flex justify-end">
+            <GithubRedirectCard />
+          </div> */}
         </div>
-        {/* <div className="flex-1 flex justify-end">
-          <GithubRedirectCard />
-        </div> */}
       </div>
     </PageContainer>
   );

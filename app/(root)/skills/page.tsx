@@ -16,7 +16,9 @@ export default function SkillsPage() {
       title={pagesConfig.skills.title}
       description={pagesConfig.skills.description}
     >
-      <SkillsCard skills={skills} />
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <SkillsCard skills={skills} />
+      </div>
     </PageContainer>
   );
 }

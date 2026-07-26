@@ -37,8 +37,9 @@ export default async function Project({ params }: ProjectPageProps) {
         <Icons.chevronLeft className="mr-2 h-4 w-4" />
         All Projects
       </Link>
-      <div>
-        <time
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <div>
+          <time
           dateTime={Date.now().toString()}
           className="block text-sm text-muted-foreground"
         >
@@ -139,6 +140,7 @@ export default async function Project({ params }: ProjectPageProps) {
             </div>
           </div>
         ))}
+      </div>
       </div>
 
       <hr className="mt-12" />

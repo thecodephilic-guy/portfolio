@@ -52,7 +52,9 @@ export default function ProjectsPage() {
       title={pagesConfig.projects.title}
       description={pagesConfig.projects.description}
     >
-      <ResponsiveTabs items={tabItems} defaultValue="all" />
+      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+        <ResponsiveTabs items={tabItems} defaultValue="all" />
+      </div>
     </PageContainer>
   );
 }

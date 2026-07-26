@@ -118,11 +118,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
           themes={[
             "light",
             "dark",
-            "retro",
-            "cyberpunk",
-            "paper",
-            "aurora",
-            "synthwave",
           ]}
         >
           {children}

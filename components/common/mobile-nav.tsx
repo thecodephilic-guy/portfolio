@@ -83,7 +83,7 @@ export function MobileNav({ items }: MobileNavProps) {
   return (
     <>
       {/* Mobile Top Bar */}
-      <header className="fixed top-0 left-0 w-full z-40 md:hidden bg-background/40 backdrop-blur-2xl border-b border-border/50">
+      <div role="banner" className="fixed top-0 left-0 w-full z-40 md:hidden backdrop-blur-2xl border-b border-border/50" style={{ backgroundColor: 'hsl(var(--background) / 0.4)' }}>
         <div className="flex h-16 items-center justify-between px-4">
           <Link href="/">
             <Image 
@@ -105,7 +105,7 @@ export function MobileNav({ items }: MobileNavProps) {
           </Link>
           <ModeToggle />
         </div>
-      </header>
+      </div>
 
       {/* Mobile Bottom Dock */}
       <div className="fixed bottom-6 left-0 w-full z-50 md:hidden flex justify-center pointer-events-none">
