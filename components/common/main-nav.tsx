@@ -33,20 +33,20 @@ export function MainNav({ items }: { items?: any[] }) {
       // GSAP macOS Dock effect
       if (!navRef.current) return;
       const nav = navRef.current;
-      
+
       const handleMouseMove = (e: MouseEvent) => {
         const mouseX = e.clientX;
-        
+
         itemRefs.current.forEach((item) => {
           if (!item) return;
           const rect = item.getBoundingClientRect();
           const itemCenterX = rect.left + rect.width / 2;
           const distance = Math.abs(mouseX - itemCenterX);
-          
+
           const maxDistance = 150;
           let scale = 1;
           let y = 0;
-          
+
           if (distance < maxDistance) {
             // Smoothstep curve for natural falloff
             let progress = 1 - distance / maxDistance;
@@ -54,7 +54,7 @@ export function MainNav({ items }: { items?: any[] }) {
             scale = 1 + (0.4 * eased); // Peak scale 1.4x
             y = 6 * eased; // Move down 6px
           }
-          
+
           gsap.to(item, {
             scale,
             y,
@@ -65,7 +65,7 @@ export function MainNav({ items }: { items?: any[] }) {
           });
         });
       };
-      
+
       const handleMouseLeave = () => {
         itemRefs.current.forEach((item) => {
           if (!item) return;
@@ -78,10 +78,10 @@ export function MainNav({ items }: { items?: any[] }) {
           });
         });
       };
-      
+
       nav.addEventListener("mousemove", handleMouseMove);
       nav.addEventListener("mouseleave", handleMouseLeave);
-      
+
       return () => {
         nav.removeEventListener("mousemove", handleMouseMove);
         nav.removeEventListener("mouseleave", handleMouseLeave);
@@ -91,21 +91,21 @@ export function MainNav({ items }: { items?: any[] }) {
   );
 
   return (
-    <div className="flex items-center gap-6 px-6 py-3" ref={containerRef} style={{ opacity: 0 }}>
+    <div className="flex items-center gap-6 px-6 py-2" ref={containerRef} style={{ opacity: 0 }}>
       <Link href="/" className="flex items-center space-x-2">
-        <Image 
-          src="/signature-black.png" 
-          alt={siteConfig.authorName} 
-          width={120} 
-          height={48} 
+        <Image
+          src="/signature-black.png"
+          alt={siteConfig.authorName}
+          width={120}
+          height={48}
           className="theme-logo-black h-8 w-auto object-contain"
           priority
         />
-        <Image 
-          src="/signature-white.png" 
-          alt={siteConfig.authorName} 
-          width={120} 
-          height={48} 
+        <Image
+          src="/signature-white.png"
+          alt={siteConfig.authorName}
+          width={120}
+          height={48}
           className="theme-logo-white h-8 w-auto object-contain"
           priority
         />

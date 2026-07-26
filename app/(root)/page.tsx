@@ -74,7 +74,7 @@ export default function IndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
-      <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
+      <section className="space-y-6 pb-8 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
           <Image
             src={profileImg}
@@ -133,14 +133,15 @@ export default function IndexPage() {
               </Link>
             </AnimatedText>
           </div>
-          <AnimatedText delay={1.2}>
-            <Icons.chevronDown className="h-6 w-6 mt-10" />
+          <AnimatedText delay={1.2} bounce={true}>
+            <Icons.chevronDown className="h-6 w-6" />
           </AnimatedText>
         </div>
       </section>
+
       <AnimatedSection
         direction="up"
-        className="w-full space-y-6 bg-muted py-10 px-6 md:px-12 my-14 rounded-3xl"
+        className="w-full space-y-6 bg-muted py-10 px-2 md:px-12 my-14"
         id="projects"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
@@ -180,9 +181,10 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
+
       <AnimatedSection
         direction="up"
-        className="w-full space-y-6 py-10 my-14"
+        className="w-full space-y-6 bg-muted py-10 px-2 md:px-12 my-14"
         id="experience"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
@@ -219,9 +221,10 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
+
       <AnimatedSection
         direction="up"
-        className="w-full space-y-6 bg-muted py-10 px-6 md:px-12 my-14 rounded-3xl"
+        className="w-full space-y-6 bg-muted py-10 px-2 md:px-12 my-14"
         id="contributions"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
@@ -248,9 +251,10 @@ export default function IndexPage() {
           </Link>
         </AnimatedText>
       </AnimatedSection>
+
       <AnimatedSection
         direction="up"
-        className="w-full space-y-6 py-10"
+        className="w-full space-y-6 bg-muted py-10 px-2 md:px-12 my-14"
         id="skills"
       >
         <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">

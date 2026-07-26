@@ -5,15 +5,15 @@
 @layer base {
   :root {
     /* Liquid Glass Theme Variables */
-    --theme-bg: #e5e5ea; 
+    --theme-bg: #e5e5ea;
     --theme-text: #000000;
     --theme-text-muted: rgba(0, 0, 0, 0.5);
-    
+
     /* Light Mode Glass */
-    --glass-bg: rgba(255, 255, 255, 0.55);
-    --glass-border: rgba(255, 255, 255, 0.8);
-    --glass-shadow: transparent;
-    --glass-inset: rgba(255, 255, 255, 0.9);
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: rgba(0, 0, 0, 0.05);
+    --glass-inset: rgba(255, 255, 255, 0.8);
     --glass-hover: rgba(0, 0, 0, 0.05);
     --separator: rgba(0, 0, 0, 0.08);
     --widget-fill: rgba(255, 255, 255, 0.9);
@@ -60,7 +60,7 @@
     --theme-bg: #000000;
     --theme-text: #ffffff;
     --theme-text-muted: rgba(255, 255, 255, 0.6);
-    
+
     /* Dark Mode Glass */
     --glass-bg: rgba(30, 30, 35, 0.75);
     --glass-border: rgba(255, 255, 255, 0.15);
@@ -103,7 +103,7 @@
     --radius: 1.5rem;
     --d: 700ms;
     --e: cubic-bezier(0.19, 1, 0.22, 1);
-    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.04' stroke-width='1'%3E%3Cpath d='M0 10l10-10 20 20 10-10M0 30l10-10 20 20 10-10'/%3E%3C/g%3E%3C/svg%3E");
+    --bg-pattern: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.1' stroke-width='1'%3E%3Cpath d='M0 10l10-10 20 20 10-10M0 30l10-10 20 20 10-10'/%3E%3C/g%3E%3C/svg%3E");
   }
 
   * {
@@ -116,14 +116,25 @@
     overflow-x: hidden;
   }
 
-  .theme-logo-white { display: none; }
-  .theme-logo-black { display: block; }
-  .dark .theme-logo-white { display: block; }
-  .dark .theme-logo-black { display: none; }
+  .theme-logo-white {
+    display: none;
+  }
+
+  .theme-logo-black {
+    display: block;
+  }
+
+  .dark .theme-logo-white {
+    display: block;
+  }
+
+  .dark .theme-logo-black {
+    display: none;
+  }
 
   body {
     font-family: var(--font-sans), 'Inter', -apple-system, sans-serif;
-    font-feature-settings: "rlig"1, "calt"1;
+    font-feature-settings: "rlig" 1, "calt" 1;
     background-color: var(--theme-bg);
     color: var(--theme-text);
     min-height: 100vh;
@@ -141,6 +152,7 @@
 }
 
 @layer components {
+
   /* LIQUID GLASS COMPONENT BASE */
   .liquid-panel {
     background-color: var(--glass-bg);
@@ -150,16 +162,27 @@
     backface-visibility: hidden;
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);
-    box-shadow: 
-        0 20px 40px -10px var(--glass-shadow), 
-        inset 0 1px 1px 0 var(--glass-inset);
+    box-shadow:
+      0 20px 40px -10px var(--glass-shadow),
+      inset 0 1px 1px 0 var(--glass-inset);
     transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
   }
 
   /* Interactive states */
-  .glass-btn:active { transform: scale(0.95); opacity: 0.8; transition: transform 0.1s ease, opacity 0.1s ease; }
-  .glass-btn { transition: all 0.2s ease; cursor: pointer; }
-  .glass-hover:hover { background-color: var(--glass-hover); }
+  .glass-btn:active {
+    transform: scale(0.95);
+    opacity: 0.8;
+    transition: transform 0.1s ease, opacity 0.1s ease;
+  }
+
+  .glass-btn {
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+
+  .glass-hover:hover {
+    background-color: var(--glass-hover);
+  }
 
   /* Apply Glass Vibe to all buttons and cards globally */
   /* Target generic UI elements that usually have solid backgrounds */
@@ -180,17 +203,35 @@
     @apply liquid-panel !important;
     border-radius: 3rem 3rem 0 0 !important;
   }
-  
+
   /* Apply hover effect globally to interactive items */
-  button:not(:disabled), [role="button"]:not([aria-disabled="true"]) {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
     @apply glass-hover;
   }
 
-  button:focus, input:focus { outline: none; }
-  
+  button:focus,
+  input:focus {
+    outline: none;
+  }
+
   /* Utilities */
-  .border-separator { border-color: var(--separator); transition: border-color 0.4s ease; }
-  .text-muted { color: var(--theme-text-muted); transition: color 0.4s ease; }
-  .bg-separator { background-color: var(--separator); transition: background-color 0.4s ease; }
-  ::-webkit-scrollbar { display: none; }
+  .border-separator {
+    border-color: var(--separator);
+    transition: border-color 0.4s ease;
+  }
+
+  .text-muted {
+    color: var(--theme-text-muted);
+    transition: color 0.4s ease;
+  }
+
+  .bg-separator {
+    background-color: var(--separator);
+    transition: background-color 0.4s ease;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }

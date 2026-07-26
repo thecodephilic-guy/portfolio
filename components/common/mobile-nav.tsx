@@ -83,22 +83,22 @@ export function MobileNav({ items }: MobileNavProps) {
   return (
     <>
       {/* Mobile Top Bar */}
-      <div role="banner" className="fixed top-0 left-0 w-full z-40 md:hidden backdrop-blur-2xl border-b border-border/50" style={{ backgroundColor: 'hsl(var(--background) / 0.4)' }}>
+      <div role="banner" className="fixed top-0 left-0 w-full z-40 md:hidden backdrop-blur-2xl border-b border-glass-border" style={{ backgroundColor: 'hsl(var(--background) / 0.4)' }}>
         <div className="flex h-16 items-center justify-between px-4">
           <Link href="/">
-            <Image 
-              src="/signature-black.png" 
-              alt={siteConfig.authorName} 
-              width={120} 
-              height={48} 
+            <Image
+              src="/signature-black.png"
+              alt={siteConfig.authorName}
+              width={120}
+              height={48}
               className="theme-logo-black h-7 w-auto object-contain"
               priority
             />
-            <Image 
-              src="/signature-white.png" 
-              alt={siteConfig.authorName} 
-              width={120} 
-              height={48} 
+            <Image
+              src="/signature-white.png"
+              alt={siteConfig.authorName}
+              width={120}
+              height={48}
               className="theme-logo-white h-7 w-auto object-contain"
               priority
             />
@@ -109,37 +109,37 @@ export function MobileNav({ items }: MobileNavProps) {
 
       {/* Mobile Bottom Dock */}
       <div className="fixed bottom-6 left-0 w-full z-50 md:hidden flex justify-center pointer-events-none">
-        <div 
+        <div
           ref={dockRef}
           style={{ opacity: 0 }}
           className="pointer-events-auto flex items-center px-2 py-2 rounded-full bg-background/40 backdrop-blur-2xl border border-white/10 shadow-2xl transition-all w-[96vw] max-w-[450px]"
         >
-        <div className="relative flex items-center justify-around flex-grow gap-1">
-          {/* Animated Highlighter Pill */}
-          <div
-            ref={highlighterRef}
-            className="absolute left-0 h-full bg-foreground/10 rounded-full"
-            style={{ width: "2.5rem" }} // Default width before first render
-          />
+          <div className="relative flex items-center justify-around flex-grow gap-1">
+            {/* Animated Highlighter Pill */}
+            <div
+              ref={highlighterRef}
+              className="absolute left-0 h-full bg-foreground/10 rounded-full"
+              style={{ width: "2.5rem" }} // Default width before first render
+            />
 
-          {navItems.map((item, index) => {
-            const isActive = activeIndex === index;
-            return (
-              <Link
-                key={index}
-                href={item.disabled ? "#" : item.href}
-                ref={(el) => { itemRefs.current[index] = el; }}
-                className={cn(
-                  "p-2 rounded-full flex items-center justify-center min-w-[2.5rem] relative z-10 transition-colors",
-                  isActive ? "text-foreground" : "text-foreground/60 hover:text-foreground",
-                  item.disabled && "cursor-not-allowed opacity-60"
-                )}
-              >
-                {getIcon(item.title)}
-              </Link>
-            );
-          })}
-        </div>
+            {navItems.map((item, index) => {
+              const isActive = activeIndex === index;
+              return (
+                <Link
+                  key={index}
+                  href={item.disabled ? "#" : item.href}
+                  ref={(el) => { itemRefs.current[index] = el; }}
+                  className={cn(
+                    "p-2 rounded-full flex items-center justify-center min-w-[2.5rem] relative z-10 transition-colors",
+                    isActive ? "text-foreground" : "text-foreground/60 hover:text-foreground",
+                    item.disabled && "cursor-not-allowed opacity-60"
+                  )}
+                >
+                  {getIcon(item.title)}
+                </Link>
+              );
+            })}
+          </div>
         </div>
       </div>
     </>

@@ -9,6 +9,7 @@ interface AnimatedTextProps {
   delay?: number;
   className?: string;
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+  bounce?: boolean;
 }
 
 export const AnimatedText = ({
@@ -16,24 +17,35 @@ export const AnimatedText = ({
   delay = 0,
   className = "",
   as: Tag = "div",
+  bounce = false,
 }: AnimatedTextProps) => {
   const ref = useRef<any>(null);
 
   useGSAP(
     () => {
-      gsap.fromTo(
+      const tl = gsap.timeline({ delay: delay });
+      tl.fromTo(
         ref.current,
         { opacity: 0, y: 20 },
         {
           opacity: 1,
           y: 0,
           duration: 0.6,
-          delay: delay,
           ease: "power2.out",
         }
       );
+
+      if (bounce) {
+        tl.to(ref.current, {
+          y: 5,
+          duration: 1.2,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
     },
-    { scope: ref, dependencies: [delay] }
+    { scope: ref, dependencies: [delay, bounce] }
   );
 
   const Component = Tag as any;

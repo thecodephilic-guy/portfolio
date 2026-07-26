@@ -27,7 +27,7 @@ export default function ExperiencePage() {
       title={pagesConfig.experience.title}
       description={pagesConfig.experience.description}
     >
-      <div className="w-full bg-muted py-10 px-6 md:px-12 my-8 rounded-3xl">
+      <div className="w-full bg-muted py-10 px-2 md:px-12 my-8 rounded-3xl">
         <Timeline experiences={experiences} />
       </div>
     </PageContainer>
