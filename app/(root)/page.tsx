@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 
 import { AnimatedSection } from "@/components/common/animated-section";
 import { AnimatedText } from "@/components/common/animated-text";
 import { ClientPageWrapper } from "@/components/common/client-page-wrapper";
+import { HeroVideoPlayer } from "@/components/common/hero-video-player";
 import { Icons } from "@/components/common/icons";
 import ContributionCard from "@/components/contributions/contribution-card";
 import ExperienceCard from "@/components/experience/experience-card";
@@ -19,7 +19,6 @@ import { featuredProjects } from "@/config/projects";
 import { siteConfig } from "@/config/site";
 import { featuredSkills } from "@/config/skills";
 import { cn } from "@/lib/utils";
-import profileImg from "@/public/profile-img.png";
 
 export const metadata: Metadata = {
   title: `${pagesConfig.home.metadata.title}`,
@@ -74,67 +73,78 @@ export default function IndexPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
       />
 
-      <section className="space-y-6 pb-8 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
-          <Image
-            src={profileImg}
-            height={100}
-            width={100}
-            sizes="100vw"
-            className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
-            alt="Sohail - Software Engineer Portfolio"
-            priority
-          />
-          <AnimatedText
-            as="h1"
-            delay={0.2}
-            className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Sohail
-          </AnimatedText>
-          <AnimatedText
-            as="h3"
-            delay={0.4}
-            className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
-          >
-            Software Engineer (Next.js, Go, TypeScript)
-          </AnimatedText>
-          <div className="mt-4 max-w-[42rem] text-center">
-            <p className="leading-normal text-muted-foreground text-sm sm:text-base">
-              Software Engineer and Open Source Contributor.
-              Specializing in full-stack development with Next.js, TypeScript, and Go.
-            </p>
+      <section className="min-h-[calc(100vh-8rem)] py-6 md:py-12 lg:py-16 flex flex-col justify-center items-center">
+        <div className="w-full max-w-5xl mx-auto px-4 flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-14 xl:gap-20">
+          {/* Left Side: Vertical Video Player */}
+          <div className="shrink-0 flex justify-center">
+            <AnimatedText as="div" delay={0.1}>
+              <HeroVideoPlayer videoId="zMzOzSFVbJY" />
+            </AnimatedText>
           </div>
 
-          <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
-            <AnimatedText delay={0.6}>
-              <Link
-                href={"/resume"}
-                target="_blank"
-                className={cn(buttonVariants({ size: "lg" }))}
-                aria-label="View resume"
-              >
-                <Icons.post className="w-4 h-4 mr-2" /> Resume
-              </Link>
+          {/* Right Side: Introduction Text */}
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left max-w-xl">
+            <AnimatedText
+              as="h1"
+              delay={0.2}
+              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl tracking-tight"
+            >
+              Sohail
             </AnimatedText>
-            <AnimatedText delay={0.8}>
-              <Link
-                href={"/contact"}
-                rel="noreferrer"
-                className={cn(
-                  buttonVariants({
-                    variant: "outline",
-                    size: "lg",
-                  })
-                )}
-                aria-label="Contact Mohd Sohail Ansari"
-              >
-                <Icons.contact className="w-4 h-4 mr-2" /> Contact
-              </Link>
+            <AnimatedText
+              as="h3"
+              delay={0.4}
+              className="font-heading text-base sm:text-xl md:text-2xl mt-2 sm:mt-3 text-foreground/90 font-medium"
+            >
+              Software Engineer (Next.js, Java, JavaScript)
             </AnimatedText>
+            <div className="mt-3 sm:mt-4 max-w-lg">
+              <AnimatedText
+                as="p"
+                delay={0.5}
+                className="leading-relaxed text-muted-foreground text-sm sm:text-base lg:text-lg"
+              >
+                Software Engineer and Open Source Contributor.
+                Specializing in full-stack development with Next.js, TypeScript, and Go.
+              </AnimatedText>
+            </div>
+
+            <div className="flex flex-row items-center justify-center lg:justify-start gap-3 sm:gap-4 mt-6 sm:mt-8">
+              <AnimatedText delay={0.6}>
+                <Link
+                  href={"/resume"}
+                  target="_blank"
+                  className={cn(buttonVariants({ size: "lg" }))}
+                  aria-label="View resume"
+                >
+                  <Icons.post className="w-4 h-4 mr-2" /> Resume
+                </Link>
+              </AnimatedText>
+              <AnimatedText delay={0.8}>
+                <Link
+                  href={"/contact"}
+                  rel="noreferrer"
+                  className={cn(
+                    buttonVariants({
+                      variant: "outline",
+                      size: "lg",
+                    })
+                  )}
+                  aria-label="Contact Mohd Sohail Ansari"
+                >
+                  <Icons.contact className="w-4 h-4 mr-2" /> Contact
+                </Link>
+              </AnimatedText>
+            </div>
           </div>
-          <AnimatedText delay={1.2} bounce={true}>
-            <Icons.chevronDown className="h-6 w-6" />
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="pt-8 sm:pt-12 flex justify-center">
+          <AnimatedText delay={1.1} bounce={true}>
+            <a href="#projects" aria-label="Scroll to projects">
+              <Icons.chevronDown className="h-6 w-6 text-muted-foreground hover:text-foreground transition-colors" />
+            </a>
           </AnimatedText>
         </div>
       </section>

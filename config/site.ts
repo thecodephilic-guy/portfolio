@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Sohail - Software Engineer (Next.js, Go, TypeScript)",
+  name: "Sohail - Software Engineer (Next.js, Java, Js)",
   authorName: "Sohail",
   username: "thecodephilic-guy",
   description:
